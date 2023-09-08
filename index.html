@@ -171,6 +171,635 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/09/08/install-with-windows/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="xiaochenthu">
+      <meta itemprop="description" content="酷安第三刷机委提醒您/ 刷机千万部，备份第一步/ 刷机不规范，机主两行泪">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="奇迹师の尘歌壶">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2023/09/08/install-with-windows/" class="post-title-link" itemprop="url">如何安装ChromeOS on PC</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2023-09-08 15:21:50 / 修改时间：15:27:37" itemprop="dateCreated datePublished" datetime="2023-09-08T15:21:50+08:00">2023-09-08</time>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>13k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>12 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="包含usb安装，单系统安装和双系统安装-使用Brunch安装ChromeOS-on-PC-框架官网有Linux安装方法不再展示"><a href="#包含usb安装，单系统安装和双系统安装-使用Brunch安装ChromeOS-on-PC-框架官网有Linux安装方法不再展示" class="headerlink" title="包含usb安装，单系统安装和双系统安装.使用Brunch安装ChromeOS on PC,框架官网有Linux安装方法不再展示"></a>包含usb安装，单系统安装和双系统安装.使用<a target="_blank" rel="noopener" href="https://github.com/sebanc/brunch/blob/main/install-with-windows.md">Brunch</a>安装ChromeOS on PC,框架官网有Linux安装方法不再展示</h2><h1 id="Install-with-Windows"><a href="#Install-with-Windows" class="headerlink" title="  Install with Windows"></a><a href="./install-with-windows.md"><img src="https://img.icons8.com/color/24/000000/windows-10.png" alt="Install with Windows"></a>  <a href="./install-with-windows.md">Install with Windows</a></h1><!-- Installation Guides -->
+<h1 id="USB-installations"><a href="#USB-installations" class="headerlink" title="USB installations"></a>USB installations</h1><p>This guide is for installing Brunch to a USB (or other disk) using Windows. This guide is also required when singlebooting. To begin, boot into Windows and click the dropdown below to continue.</p>
+<details>
+  <summary>Click to open USB guide</summary>
+
+<h3 id="Requirements"><a href="#Requirements" class="headerlink" title="Requirements"></a>Requirements</h3><ul>
+<li>Administrator access.</li>
+<li>Target Disk&#x2F;USB must be 16 GB minimum.<ul>
+<li>You will also need about 16 GB of free space in your Windows installation.</li>
+</ul>
+</li>
+<li>A linux installation via WSL2</li>
+<li><code>pv</code>, <code>tar</code>, <code>unzip</code> and <code>cgpt</code> packages.</li>
+<li>A <a href="./README.md#supported-hardware">compatible PC</a> to boot Brunch on.</li>
+<li>An entry level understanding of the linux terminal.<ul>
+<li>This guide aims to make this process as easy as possible, but knowing the basics is expected.</li>
+</ul>
+</li>
+</ul>
+<h3 id="Recoveries"><a href="#Recoveries" class="headerlink" title="Recoveries"></a>Recoveries</h3><ol>
+<li>Download a recovery suitable for your CPU. The list below can help you select one. You do <em>not</em> need to select a recovery that matches the latest Brunch release number, the most recent avaliable is typically fine.</li>
+</ol>
+<h4 id="Intel"><a href="#Intel" class="headerlink" title="Intel"></a>Intel</h4><ul>
+<li><a target="_blank" rel="noopener" href="https://cros.tech/device/shyvana">“shyvana” for 4th gen -&gt; 9th gen.</a></li>
+<li><a target="_blank" rel="noopener" href="https://cros.tech/device/jinlon">“jinlon” for 10th gen.</a></li>
+<li><a target="_blank" rel="noopener" href="https://cros.tech/device/voxel">“voxel” for 11th gen &amp; above.</a></li>
+</ul>
+<h4 id="AMD"><a href="#AMD" class="headerlink" title="AMD"></a>AMD</h4><ul>
+<li><a target="_blank" rel="noopener" href="https://cros.tech/device/gumboz">“gumboz” for Ryzen.</a></li>
+</ul>
+<p>Recoveries can be found by clicking the above links. They can also be found by going to <a target="_blank" rel="noopener" href="https://cros.tech/">cros.tech</a> and searching for the recovery you want.</p>
+<p>After selecting the recovery you want, you can select a specific release. Posted releases may be behind the current release, this is normal and you can update into the current release later. It is usually suggested to use the latest release avaliable.</p>
+<h3 id="Gathering-Files"><a href="#Gathering-Files" class="headerlink" title="Gathering Files"></a>Gathering Files</h3><ol start="2">
+<li>Download the Brunch files from this GitHub repository. Do not use files found on other sites or linked in videos online. The <a target="_blank" rel="noopener" href="https://github.com/sebanc/brunch/releases">releases tab</a> can be found at the bottom of the right-hand column on the main GitHub page, but it is generally suggested to use the <a target="_blank" rel="noopener" href="https://github.com/sebanc/brunch/releases/latest">latest release</a>.</li>
+</ol>
+<p>When downloading a release, select the brunch…tar.gz file from the assets at the bottom of the release post. You do not need the source code files, do not download them.</p>
+<p>Before continuing, you will need a linux distro installed from the Microsoft Store using WSL2, and the distro must be set up and ready to use. Please refer to online resources for this as the setup can be complicated for some systems.</p>
+<h3 id="Prepare-the-Terminal"><a href="#Prepare-the-Terminal" class="headerlink" title="Prepare the Terminal"></a>Prepare the Terminal</h3><ol start="3">
+<li>Once both files have been downloaded, the Brunch release and your chosen ChromeOS recovery, Launch WSL2.</li>
+<li>Make sure that pv, cgpt, tar and unzip are installed.</li>
+</ol>
+<p><code>sudo apt update &amp;&amp; sudo apt -y install pv cgpt tar unzip</code></p>
+<ul>
+<li>My example uses <code>apt</code>, a package manager for Debian and Ubuntu based distros. If you use Arch, you will need <a target="_blank" rel="noopener" href="https://aur.archlinux.org/packages/vboot-utils">vboot-utils</a> for access to cgpt and a different package manager may be needed to install the rest.</li>
+</ul>
+<p>4b. Some Linux releases may require the <code>universe</code> repo to install some of the above dependencies. If you get any errors about a dependency being unavaliable, add the <code>universe</code> repo with this command, and then try the previous step again afterwards.</p>
+<p><code>sudo add-apt-repository universe</code></p>
+<ol start="5">
+<li>After all dependencies have been installed, <code>cd</code> into the directory where your files were downloaded.</li>
+</ol>
+<ul>
+<li>Replace <code>username</code> with your <em>Windows</em> username.</li>
+<li>The linux terminal is Case Sensitive, be mindful of capital letters.</li>
+</ul>
+<p><code>cd /mnt/c/Users/username/Downloads</code></p>
+<ol start="6">
+<li>Extract the Brunch archive using <code>tar</code></li>
+</ol>
+<ul>
+<li>Replace <code>brunch_filename.tar.gz</code> with the file’s actual filename.</li>
+</ul>
+<p><code>tar zxvf brunch_filename.tar.gz</code></p>
+<ol start="7">
+<li>Extract the ChromeOS recovery using <code>unzip</code></li>
+</ol>
+<ul>
+<li>Replace <code>chromeos_filename.bin.zip</code> with the file’s actual filename.</li>
+</ul>
+<p><code>unzip chromeos_filename.bin.zip</code></p>
+<p>Once completed, you will have 4 new files from the brunch archive, and a recovery bin that we will use in the next step.</p>
+<h3 id="Install-Brunch"><a href="#Install-Brunch" class="headerlink" title="Install Brunch"></a>Install Brunch</h3><ol start="8">
+<li>Once you’ve got your files ready, you’re ready to install Brunch.</li>
+</ol>
+<ul>
+<li>As before, replace <code>chromeos_filename.bin</code> with the bin file’s actual filename.</li>
+</ul>
+<p><code>sudo bash chromeos-install.sh -src chromeos_filename.bin -dst chromeos.img</code></p>
+<p>The script will ask for confirmation. If you’re ready to install, type <code>yes</code> into the prompt.</p>
+<p>The installation may take some time depending on the speed of your disk, please be patient. There may be a couple of GPT Header errors, which can be safely ignored. </p>
+<p>The installation will report that ChromeOS was installed when it is finished. Before closing the terminal, make sure that there are no additional errors in the terminal. If there are no errors, then you are good to go!</p>
+<h3 id="Making-the-USB"><a href="#Making-the-USB" class="headerlink" title="Making the USB"></a>Making the USB</h3><ol start="9">
+<li>Since WSL2 does not have direct disk access, we make an img with WSL2 and then use another program such as <a target="_blank" rel="noopener" href="https://rufus.ie/">Rufus</a> or <a target="_blank" rel="noopener" href="https://www.balena.io/etcher/">Etcher</a> to write the disk to a USB. Open the program of your choice, select the chromeos.img in your Downloads folder and write it to your USB.</li>
+</ol>
+<h3 id="Next-Steps"><a href="#Next-Steps" class="headerlink" title="Next Steps"></a>Next Steps</h3><p>If you installed to a USB or a second internal disk, then you should be ready to boot into Brunch. If you’ve installed to a USB, keep it plugged in and reboot. It is normal for the first boot to take a very long time, please be patient.</p>
+<ul>
+<li>The first boot is the best time to setup anything important such as <a href="./troubleshooting-and-faqs.md#kernels">changing kernels</a> or <a href="./troubleshooting-and-faqs.md#framework-options">framework options</a> by selecting the “ChromeOS (Settings)” boot option.</li>
+<li>If you have any issues, it is strongly advised to check out the <a href="./troubleshooting-and-faqs.md#brunch-configuration-menu">Brunch Configuration Menu</a> for possible patches or solutions.</li>
+<li>At this point, your device may incorrectly state that your installation is only 14 GB, regardless of it’s actual size. This can be fixed by opening a developer shell on the startup screen with <strong>Ctrl + Alt + F2</strong>.<ul>
+<li>Log in as <code>root</code> there should be no password.</li>
+<li>Enter <code>resize-data</code> then reboot the PC when it’s finished. Your reported size should now be accurate.</li>
+</ul>
+</li>
+</ul>
+<h2 id="Secure-Boot"><a href="#Secure-Boot" class="headerlink" title="Secure Boot"></a>Secure Boot</h2><ol start="10">
+<li>If secure boot is enabled, a blue screen saying <code>Verification failed: (15) Access Denied</code> may appear upon boot.</li>
+</ol>
+<ul>
+<li>To enroll the key directly from a USB, select OK -&gt; Enroll key from disk -&gt; EFI-SYSTEM -&gt; brunch.der -&gt; Continue and reboot.</li>
+</ul>
+  </details>
+  
+<hr>
+<h1 id="Singleboot-installations"><a href="#Singleboot-installations" class="headerlink" title="Singleboot installations"></a>Singleboot installations</h1><p>This guide is for installing Brunch to a disk using a Brunch USB. This guide requires having a working Brunch USB to initiate the install, you can make one by following the <a href="./install-with-windows.md#usb-installations">guide above</a>. To begin, boot into a working Brunch USB and click the dropdown below to continue.</p>
+<details>
+  <summary>Click to open singleboot guide</summary>
+
+<h3 id="Requirements-1"><a href="#Requirements-1" class="headerlink" title="Requirements"></a>Requirements</h3><ul>
+<li>Administrator access.</li>
+<li>Target Disk must be 16 GB minimum.</li>
+<li>Working Brunch USB.</li>
+<li>A <a href="./README.md#supported-hardware">compatible PC</a> to boot Brunch on.</li>
+<li>An entry level understanding of the linux terminal.<ul>
+<li>This guide aims to make this process as easy as possible, but knowing the basics is expected.</li>
+</ul>
+</li>
+</ul>
+<h3 id="Selecting-a-Target-Disk"><a href="#Selecting-a-Target-Disk" class="headerlink" title="Selecting a Target Disk"></a>Selecting a Target Disk</h3><ol>
+<li><p>Log into ChromeOS, and open a Crosh Shell with <strong>Ctrl + Alt + T</strong>, then enter <code>shell</code> at the prompt.</p>
+</li>
+<li><p>Before continuing, you will need to know what disk you want to install to. Be absolutely sure <strong>before</strong> you continue, this installation will erase <strong>everything</strong> on that disk, including other partitions. The disk must be at least 16 GB, or the installation will fail. There are several ways to determine which disk is your target, in my example I’ll be using <code>lsblk</code>.</p>
+</li>
+</ol>
+<p><code>lsblk -e7</code></p>
+<p>This command will show your disks, and the partitions on them. It will also show their sizes and if they are currently mounted. Use this information to determine which disk is your target.</p>
+<hr>
+<h4 id="Tips"><a href="#Tips" class="headerlink" title="Tips:"></a>Tips:</h4><ul>
+<li><p>Your target will <strong>never</strong> be zram or a loop device.</p>
+</li>
+<li><p>Some PCs may require RAID to be disabled before showing your disks correctly.</p>
+</li>
+<li><p>For this installation, a USB is treated the same as any HDD or SSD.</p>
+</li>
+<li><p>If there is an EFI mountpoint on a disk that disk is your boot disk.</p>
+<ul>
+<li>You <strong>cannot</strong> install Brunch directly onto the same disk you are currently booting from.</li>
+</ul>
+</li>
+<li><p>When doing a singleboot installation, your target will <strong>not</strong> be a partition. This method installs to the <em>entire</em> disk.</p>
+<hr>
+</li>
+</ul>
+<h3 id="Install-Brunch-1"><a href="#Install-Brunch-1" class="headerlink" title="Install Brunch"></a>Install Brunch</h3><ol start="3">
+<li>Once you’ve determined your target disk, you’re ready to install Brunch.</li>
+</ol>
+<ul>
+<li>You will replace <code>disk</code> with your target disk. (Such as <code>sdb</code>, <code>mmcblk0</code> or <code>nvme0n1</code> for example)</li>
+</ul>
+<p><code>sudo chromeos-install -dst /dev/disk</code></p>
+<p>The script will ask for confirmation. If you’re ready to install, type <code>yes</code> into the prompt.</p>
+<p>The installation may take some time depending on the speed of your target disk, please be patient. There may be a couple of GPT Header errors, which can be safely ignored. </p>
+<p>The installation will report that ChromeOS was installed when it is finished. Before closing the terminal, make sure that there are no additional errors in the terminal. If there are no errors, then you are good to go!</p>
+<h3 id="Next-Steps-1"><a href="#Next-Steps-1" class="headerlink" title="Next Steps"></a>Next Steps</h3><p>It is normal for the first boot to take a very long time, please be patient.</p>
+<ul>
+<li>The first boot is the best time to setup anything important such as <a href="./troubleshooting-and-faqs.md#kernels">changing kernels</a> or <a href="./troubleshooting-and-faqs.md#framework-options">framework options</a> by selecting the “ChromeOS (Settings)” boot option.</li>
+<li>If you have any issues, it is strongly advised to check out the <a href="./troubleshooting-and-faqs.md#brunch-configuration-menu">Brunch Configuration Menu</a> for possible patches or solutions.</li>
+</ul>
+</details>  
+  
+<hr>
+<h1 id="Dualboot-installations"><a href="#Dualboot-installations" class="headerlink" title="Dualboot installations"></a>Dualboot installations</h1><p>This guide is for installing Brunch to a partition using Windows WSL2.</p>
+<details>
+  <summary>Click to open dualboot guide</summary>
+
+<h3 id="Requirements-2"><a href="#Requirements-2" class="headerlink" title="Requirements"></a>Requirements</h3><ul>
+<li>Administrator access.</li>
+<li>Target partition must be 16gb minimum, unencrypted (bitlocker disabled), and formatted as NTFS.</li>
+<li>A linux installation vis WSL2</li>
+<li><code>pv</code>, <code>tar</code>, <code>unzip</code> and <code>cgpt</code> packages.</li>
+<li>A <a href="./README.md#supported-hardware">compatible PC</a> to boot Brunch on.</li>
+<li>An entry level understanding of the linux terminal.<ul>
+<li>This guide aims to make this process as easy as possible, but knowing the basics is expected.</li>
+</ul>
+</li>
+</ul>
+<h3 id="Recoveries-1"><a href="#Recoveries-1" class="headerlink" title="Recoveries"></a>Recoveries</h3><ol>
+<li>Download a recovery suitable for your CPU. The list below can help you select one. You do <em>not</em> need to select a recovery that matches the latest Brunch release number, the most recent avaliable is typically fine.</li>
+</ol>
+<h4 id="Intel-1"><a href="#Intel-1" class="headerlink" title="Intel"></a>Intel</h4><ul>
+<li><a target="_blank" rel="noopener" href="https://cros.tech/device/shyvana">“shyvana” for 4th gen -&gt; 9th gen.</a></li>
+<li><a target="_blank" rel="noopener" href="https://cros.tech/device/jinlon">“jinlon” for 10th gen.</a></li>
+<li><a target="_blank" rel="noopener" href="https://cros.tech/device/voxel">“voxel” for 11th gen &amp; above.</a></li>
+</ul>
+<h4 id="AMD-1"><a href="#AMD-1" class="headerlink" title="AMD"></a>AMD</h4><ul>
+<li><a target="_blank" rel="noopener" href="https://cros.tech/device/gumboz">“gumboz” for Ryzen.</a></li>
+</ul>
+<p>Recoveries can be found by clicking the above links. They can also be found by going to <a target="_blank" rel="noopener" href="https://cros.tech/">cros.tech</a> and searching for the recovery you want.</p>
+<p>After selecting the recovery you want, you can select a specific release. Posted releases may be behind the current release, this is normal and you can update into the current release later. It is usually suggested to use the latest release avaliable.</p>
+<h3 id="Gathering-Files-1"><a href="#Gathering-Files-1" class="headerlink" title="Gathering Files"></a>Gathering Files</h3><ol start="2">
+<li>Download the Brunch files from this GitHub repository. Do not use files found on other sites or linked in videos online. The <a target="_blank" rel="noopener" href="https://github.com/sebanc/brunch/releases">releases tab</a> can be found at the bottom of the right-hand column on the main GitHub page, but it is generally suggested to use the <a target="_blank" rel="noopener" href="https://github.com/sebanc/brunch/releases/latest">latest release</a>.</li>
+</ol>
+<p>When downloading a release, select the brunch…tar.gz file from the assets at the bottom of the release post. You do not need the source code files, do not download them.</p>
+<p>Before continuing, you will need a linux distro installed from the Microsoft Store using WSL2, and the distro must be set up and ready to use. Please refer to online resources for this as the setup can be complicated for some systems.</p>
+<h3 id="Prepare-the-Terminal-1"><a href="#Prepare-the-Terminal-1" class="headerlink" title="Prepare the Terminal"></a>Prepare the Terminal</h3><ol start="3">
+<li>Once both files have been downloaded, the Brunch release and your chosen ChromeOS recovery, Launch WSL2.</li>
+<li>Make sure that pv, cgpt, tar and unzip are installed.</li>
+</ol>
+<p><code>sudo apt update &amp;&amp; sudo apt -y install pv cgpt tar unzip</code></p>
+<ul>
+<li>My example uses <code>apt</code>, a package manager for Debian and Ubuntu based distros. If you use Arch, you will need <a target="_blank" rel="noopener" href="https://aur.archlinux.org/packages/vboot-utils">vboot-utils</a> for access to cgpt and a different package manager may be needed to install the rest.</li>
+</ul>
+<p>4b. Some Linux releases may require the <code>universe</code> repo to install some of the above dependencies. If you get any errors about a dependency being unavaliable, add the <code>universe</code> repo with this command, and then try the previous step again afterwards.</p>
+<p><code>sudo add-apt-repository universe</code></p>
+<ol start="5">
+<li>After all dependencies have been installed, <code>cd</code> into the directory where your files were downloaded.</li>
+</ol>
+<ul>
+<li>Replace <code>username</code> with your <em>Windows</em> username.</li>
+<li>The linux terminal is Case Sensitive, be mindful of capital letters.</li>
+</ul>
+<p><code>cd /mnt/c/Users/username/Downloads</code></p>
+<ol start="6">
+<li>Extract the Brunch archive using <code>tar</code></li>
+</ol>
+<ul>
+<li>Replace <code>brunch_filename.tar.gz</code> with the file’s actual filename.</li>
+</ul>
+<p><code>tar zxvf brunch_filename.tar.gz</code></p>
+<ol start="7">
+<li>Extract the ChromeOS recovery using <code>unzip</code></li>
+</ol>
+<ul>
+<li>Replace <code>chromeos_filename.bin.zip</code> with the file’s actual filename.</li>
+</ul>
+<p><code>unzip chromeos_filename.bin.zip</code></p>
+<p>Once completed, you will have 4 new files from the brunch archive, and a recovery bin that we will use in the next step.</p>
+<h3 id="Install-Brunch-2"><a href="#Install-Brunch-2" class="headerlink" title="Install Brunch"></a>Install Brunch</h3><ol start="8">
+<li>Once you’ve got your files ready, you’re ready to install Brunch.</li>
+</ol>
+<ul>
+<li>As before, replace <code>chromeos_filename.bin</code> with the bin file’s actual filename.</li>
+<li>You will also replace <code>size</code> with a whole number. (Such as <code>14</code>, <code>20</code>, or <code>100</code> for example)<ul>
+<li>The number must be a <em>minimum</em> of 14, but <em>less</em> than the avaliable space on your partition in GB.</li>
+</ul>
+</li>
+</ul>
+<p>Make a directory to install Brunch, for example:  </p>
+<ul>
+<li>run <code>mkdir /mnt/c/Users/username/brunch</code> if you want to install brunch in your home folder on C: partition.</li>
+<li>or <code>mkdir /mnt/d/brunch</code> if you want to install brunch in the D: partition.</li>
+</ul>
+<p>  Then launch the installer providing “-dst” argument with the name of the image file to be created (in your brunch directory):<br><code>sudo bash chromeos-install.sh -src chromeos_filename.bin -dst /mnt/c/Users/username/brunch/chromeos.img -s size</code></p>
+<p>The installation may take some time depending on the speed of your target disk, please be patient. There may be a couple of GPT Header errors, which can be safely ignored. If you are told that there is not enough space to install, reduce the number at the end of your command until it fits. It is normal that the img cannot take the entire space of the partition, as some of that space is reserved by the system.</p>
+<p>When the installer asks you for the type of install, type “dualboot” in the terminal and press “Enter” to continue.</p>
+<p>The installation will report that ChromeOS was installed when it is finished. Before continuing, make sure that there are no additional errors in the terminal. If there are no errors, then you are good to continue!</p>
+<h3 id="Set-up-Grub2Win"><a href="#Set-up-Grub2Win" class="headerlink" title="Set up Grub2Win"></a>Set up Grub2Win</h3><ol start="10">
+<li><p>Install <a target="_blank" rel="noopener" href="https://sourceforge.net/projects/grub2win/">Grub2win</a> if you have not already, then launch the program.</p>
+</li>
+<li><p>Click on the <code>Manage Boot Menu</code> button, then <code>Add A New Entry</code>.</p>
+</li>
+</ol>
+<ul>
+<li><p>Select <code>Create user section</code> from the ‘Type’ section. This will open a text file. Open the chromeos.grub.txt file we saved earlier, it’s in the same directory as your chromeos.img. Copy the grub boot entries saved in that file and copy them into Grub2win.</p>
+</li>
+<li><p>Click <code>Ok</code> and <code>Apply</code> to save your entries into Grub2win.</p>
+<ul>
+<li>Your entry will not be saved unless you click <em>both</em> <code>Ok</code> <em>and</em> <code>Apply</code>.</li>
+</ul>
+</li>
+</ul>
+<h3 id="Prevent-Windows-from-locking-the-NTFS-partition"><a href="#Prevent-Windows-from-locking-the-NTFS-partition" class="headerlink" title="Prevent Windows from locking the NTFS partition"></a>Prevent Windows from locking the NTFS partition</h3><ol start="12">
+<li>Disable encryption &#x2F; hibernation</li>
+</ol>
+<p>ChromeOS will not be bootable and &#x2F; or stable if you do not perform the below actions (Refer to Windows online resources if needed):</p>
+<ul>
+<li>Ensure that bitlocker is disabled on the drive which contains the ChromeOS image or disable it.</li>
+<li>Disable fast startup.</li>
+<li>Disable hibernation.</li>
+</ul>
+<p>At this point, you are ready to reboot and you’ll be greeted by the Grub2win menu instead of booting into Windows. </p>
+<h3 id="Next-Steps-2"><a href="#Next-Steps-2" class="headerlink" title="Next Steps"></a>Next Steps</h3><p>It is normal for the first boot to take a very long time, please be patient.</p>
+<ul>
+<li><p>The first boot is the best time to setup anything important such as <a href="./troubleshooting-and-faqs.md#kernels">changing kernels</a> or <a href="./troubleshooting-and-faqs.md#framework-options">framework options</a> by selecting the “ChromeOS (Settings)” boot option.</p>
+</li>
+<li><p>If you have any issues, it is strongly advised to check out the <a href="./troubleshooting-and-faqs.md#brunch-configuration-menu">Brunch Configuration Menu</a> for possible patches or solutions.</p>
+</details></li>
+</ul>
+<hr>
+<h1 id="Troubleshooting-and-Support"><a href="#Troubleshooting-and-Support" class="headerlink" title="Troubleshooting and Support"></a><a href="./troubleshooting-and-faqs.md">Troubleshooting and Support</a></h1><p>See the full <a href="./troubleshooting-and-faqs.md">Troubleshooting and Support</a> page if you’re having issues.</p>
+<h3 id="Additional-Tips"><a href="#Additional-Tips" class="headerlink" title="Additional Tips"></a>Additional Tips</h3><ul>
+<li>If you’re having trouble booting a Brunch USB, make sure that UEFI is enabled in the BIOS.</li>
+<li>Some PCs require a key to be held when booting to boot from USB or that USB booting is enabled in the BIOS</li>
+<li>The first boot can take up to an hour on some hardware. Brunch does not typically freeze on the Brunch logo. If you are seeing the Brunch logo, the system is <em>probably</em> still booting.</li>
+<li>If your PC is stuck on the ChromeOS logo (White background), it is likely that you’ve got an incompatible dedicated GPU.</li>
+<li>If you get a blue screen saying “Verification failed” you can either disable secure boot in your bios settings, or <a href="./install-with-linux.md#secure-boot">enroll the secure boot key</a>.<ul>
+<li>To enroll the key directly from a USB, select OK -&gt; Enroll key from disk -&gt; EFI-SYSTEM -&gt; brunch.der -&gt; Continue and reboot.</li>
+</ul>
+</li>
+<li>If the system reboots <em>itself</em> when booting normally, then Brunch has run into an error and you may need to do some advanced troubleshooting.</li>
+</ul>
+<p>In case you run into issues while installing or using Brunch, below are the main places where you can find support:</p>
+<p><a target="_blank" rel="noopener" href="https://discord.gg/x2EgK2M"><img src="https://img.shields.io/badge/Discord-Join-7289da?style=flat-square&logo=discord&logoColor=%23FFFFFF" alt="Discord"></a><br><a target="_blank" rel="noopener" href="https://www.reddit.com/r/Brunchbook"><img src="https://img.shields.io/badge/Reddit-Join-FF5700?style=flat-square&logo=reddit&logoColor=%23FFFFFF" alt="Reddit"></a><br><a target="_blank" rel="noopener" href="https://t.me/chromeosforpc"><img src="https://img.shields.io/badge/Telegram-Join-0088cc?style=flat-square&logo=telegram&logoColor=%23FFFFFF" alt="Telegram"></a></p>
+<!-- Alternate Guide -->
+<h2 id="Looking-for-the-Linux-guide"><a href="#Looking-for-the-Linux-guide" class="headerlink" title="Looking for the Linux guide?"></a>Looking for the Linux guide?</h2><h3 id="Install-with-Linux"><a href="#Install-with-Linux" class="headerlink" title="  Install with Linux"></a><a href="./install-with-linux.md"><img src="https://img.icons8.com/color/24/000000/linux--v1.png" alt="Install with Linux"></a>  <a href="./install-with-linux.md">Install with Linux</a></h3><!-- Reference Links -->
+<!-- Badges -->
+<!-- Outbound Links -->
+<!-- Images -->
+<!-- Internal Links -->
+
+      
+    </div>
+
+    
+    
+    
+
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/09/08/Ubuntu%2020.04%20%E5%AE%89%E8%A3%85VNC%20Server%E8%B6%85%E7%AE%80%E5%8D%95%E6%95%99%E7%A8%8B/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="xiaochenthu">
+      <meta itemprop="description" content="酷安第三刷机委提醒您/ 刷机千万部，备份第一步/ 刷机不规范，机主两行泪">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="奇迹师の尘歌壶">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2023/09/08/Ubuntu%2020.04%20%E5%AE%89%E8%A3%85VNC%20Server%E8%B6%85%E7%AE%80%E5%8D%95%E6%95%99%E7%A8%8B/" class="post-title-link" itemprop="url">Ubuntu 20.04 安装VNC Server超简单教程</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2023-09-08 15:15:06 / 修改时间：15:29:21" itemprop="dateCreated datePublished" datetime="2023-09-08T15:15:06+08:00">2023-09-08</time>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>1.2k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>1.确保安装了GNOME DESKTOP<br>对于桌面版是不用说了，服务器版操作系统需要安装一下桌面</p>
+<h1 id="apt-install-ubuntu-gnome-desktop"><a href="#apt-install-ubuntu-gnome-desktop" class="headerlink" title="apt install ubuntu-gnome-desktop"></a>apt install ubuntu-gnome-desktop</h1><h1 id="systemctl-set-default-multi-user-target"><a href="#systemctl-set-default-multi-user-target" class="headerlink" title="systemctl set-default multi-user.target"></a>systemctl set-default multi-user.target</h1><p>$ startx<br>2.Installing VNC<br>不要安装tigervncserver<br>一定要安装这个 standalone的，会有一点区别（不识别 下面的 -localhost no)<br>apt install tigervnc-standalone-server</p>
+<p>3.Configuring the VNC Server<br>如果你希望用某个用户比如 demo登录，就用su切换到这个用户。<br>如果想用root登录就直接使用root账号进行操作。</p>
+<h1 id="su-demo"><a href="#su-demo" class="headerlink" title="su - demo"></a>su - demo</h1><p>demo@demoserver:<del>$ vncpasswd<br>Password:<br>Verify:<br>Would you like to enter a view-only password (y&#x2F;n)? n<br>A view-only password is not used<br>上面的命令会在</del>&#x2F;.vnc&#x2F;目录下生成一个 passwd文件。里面是加密的密码。<br>然后需要cd 到 ~&#x2F;.vnc目录下，新建一个xstartup 文件<br>输入以下内容：<br>#!&#x2F;bin&#x2F;sh</p>
+<h1 id="Start-Gnome-3-Desktop"><a href="#Start-Gnome-3-Desktop" class="headerlink" title="Start Gnome 3 Desktop"></a>Start Gnome 3 Desktop</h1><p>[ -x &#x2F;etc&#x2F;vnc&#x2F;xstartup ] &amp;&amp; exec &#x2F;etc&#x2F;vnc&#x2F;xstartup<br>[ -r $HOME&#x2F;.Xresources ] &amp;&amp; xrdb $HOME&#x2F;.Xresources<br>vncconfig -iconic &amp;<br>dbus-launch –exit-with-session gnome-session &amp;<br>作用是vncserver启动的时候运行这些命令，把桌面程序启动起来。<br>4. Starting the VNC Server<br>$ vncserver<br>即可启动vnc server ,但是连不上，因为只监听了127.0.0.1，所以需要以下命令<br>$ vncserver -localhost no<br>查看全部的vnc会话 <br>$ vncserver -list<br>TigerVNC server sessions:</p>
+<p>X DISPLAY #	PROCESS ID<br>:1		1607<br>:2		4726<br> 关闭某个会话可以用下面的命令<br>$ vncserver -kill :1<br>5.客户端选择<br>vncviewer<br>下载页面：<br>Download VNC Viewer for Windows | VNC® Connect<br>VNC Viewer - Download<br>具体使用不讲了，默认端口是5901</p>
+<p>参考：<br>Ubuntu 20.04 Remote Desktop Access with VNC – Answertopia</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/09/08/Python%20%E7%88%AC%E8%99%AB%E4%B8%AD%20wad%E5%BA%93%E7%9A%84%E2%80%98gbk%E2%80%98%E7%BC%96%E7%A0%81%E9%97%AE%E9%A2%98/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="xiaochenthu">
+      <meta itemprop="description" content="酷安第三刷机委提醒您/ 刷机千万部，备份第一步/ 刷机不规范，机主两行泪">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="奇迹师の尘歌壶">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2023/09/08/Python%20%E7%88%AC%E8%99%AB%E4%B8%AD%20wad%E5%BA%93%E7%9A%84%E2%80%98gbk%E2%80%98%E7%BC%96%E7%A0%81%E9%97%AE%E9%A2%98/" class="post-title-link" itemprop="url">Python 爬虫中 wad库的‘gbk‘编码问题</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2023-09-08 15:08:23 / 修改时间：15:28:43" itemprop="dateCreated datePublished" datetime="2023-09-08T15:08:23+08:00">2023-09-08</time>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>177</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>最近开始学习python的爬虫。 在吕云翔等编写的Python网络爬虫-从入门到精通一书之中，在介绍查看网站所用的技术时，提到了使用wad库的方法。 但我在使用的过程中遇到了gbk编码问题<br>这里先直接给出解决的方法。<br>打开到clues.py， 找到第46行，在open函数中增加encoding&#x3D;‘utf-8’这项参数。之后保存了就可以正常的运行程序了。</p>
+<pre><code class="python">
+</code></pre>
+
+      
+    </div>
+
+    
+    
+    
+
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/09/08/Termux%E5%AE%89%E8%A3%85%E5%AE%8C%E6%95%B4%E7%89%88Linux(Ubuntu)%E8%AF%A6%E7%BB%86%E6%AD%A5%E9%AA%A4/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="xiaochenthu">
+      <meta itemprop="description" content="酷安第三刷机委提醒您/ 刷机千万部，备份第一步/ 刷机不规范，机主两行泪">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="奇迹师の尘歌壶">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2023/09/08/Termux%E5%AE%89%E8%A3%85%E5%AE%8C%E6%95%B4%E7%89%88Linux(Ubuntu)%E8%AF%A6%E7%BB%86%E6%AD%A5%E9%AA%A4/" class="post-title-link" itemprop="url">Termux安装完整版Linux(Ubuntu)详细步骤</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2023-09-08 14:18:02 / 修改时间：15:29:49" itemprop="dateCreated datePublished" datetime="2023-09-08T14:18:02+08:00">2023-09-08</time>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>4.1k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>4 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>一、Termux<br>1.Termux简介<br>Termux是 Android 平台上的一个终端模拟器，之所以称它为“模拟器”而非“虚拟机”，是因为它并非像 PC 端的 VirtualBox 等虚拟机软件那样，在宿主机中虚拟出一个完全独立且完整的系统环境，而只是提供一个接口，以安装和运行面向新环境交叉编译后的程序。<br>Termux将众多 Linux 上运行的软件和工具移植到了手机端。无需任何复杂的安装和配置过程，装好Termux以后即会自动对Termux配置一个基本的运行环境，用以执行一些常见的 Linux 命令。<br>最为关键的是Termux内置了功能健全的包管理工具。<br>也可以将此时的手机看作是安装了 Linux 系统的树莓派，可以像 PC 端系统那样运行各种类型的软件，只不过这些软件都是针对特定的 CPU 架构和硬件设备编译过的（交叉编译或者在树莓派系统中本地编译）。 需要注意的是，由于移动端和 PC 端硬件设备的巨大差异，加上 Android 内核和操作系统的限制，能够直接运行的程序毕竟是少数。根据统计，实际上可直接安装运行的软件大概有 900个！<br>这里简单的列举下部分软件：<br>基础工具：apt、bash、busybox、dpkg、git、htop、make、zsh ……编程语言：binutils、clang、dart、erlang、golang、lua、nodejs、perl、php、python、ruby、rust ……服务器软件：apache2、lighttpd、nginx、openssh ……数据库软件：mariadb、memcached、mosquitto、postgresql、redis、sqlite ……文本工具和编辑器：emacs、gawk、nano、sed、vim ……媒体工具：ffmpeg、imagemagick、mpv、sox ……网络工具：curl、httping、nmap、wget ……游戏和娱乐：bastet、cmatrix、cowsay、fortune、moon-buggy、nsnake、sl ……<br>2.Termux安装<br>百度网盘：<br>链接：<a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1svumsiCLq-atB0VdSo9JaA">https://pan.baidu.com/s/1svumsiCLq-atB0VdSo9JaA</a>  提取码：zzxx<br>刚安装这三个软件包后只需打开Termux即可，打开后建议先输入(为了更新一下)：<br>apt update &amp;&amp; apt upgrade  回车 <br>此时可以输入 apt list 查看可安装的软件目录：</p>
+<p> 安装上图中软件方法：<br>输入：<br>apt install 软件名(上图中绿色英文)     回车<br>或<br>pkg install 软件名(上图中绿色英文)     回车<br>例如：<br>$ apt install fortune$ apt install cowsay$ apt install lolcat 软件应用： fortune：输出一段格言警句、名著节选或者小笑话等cowsay：将输出的文字内容包含在由 ASCII 字符组成的动物形象的气泡内lolcat：将苍白的输出文字变成绚丽的彩虹色<br> <br>3.替换镜像源(清华源)<br>替换镜像源是为了之后安装软件更快，之前都是几十KB每秒，替换过后就是几MB每秒。<br>未替换镜像源：（注意红圈内容）</p>
+<p>使用如下命令行替换官方源为 TUNA 镜像源： <br>只需在 $ 后输入以下四行命令(在输入每行后按回车)<br>sed -i ‘s@^(deb.*stable main)$@#\1\ndeb <a target="_blank" rel="noopener" href="https://mirrors.tuna.tsinghua.edu.cn/termux/termux-packages-24">https://mirrors.tuna.tsinghua.edu.cn/termux/termux-packages-24</a> stable main@’ $PREFIX&#x2F;etc&#x2F;apt&#x2F;sources.list<br>sed -i ‘s@^(deb.*games stable)$@#\1\ndeb <a target="_blank" rel="noopener" href="https://mirrors.tuna.tsinghua.edu.cn/termux/game-packages-24">https://mirrors.tuna.tsinghua.edu.cn/termux/game-packages-24</a> games stable@’ $PREFIX&#x2F;etc&#x2F;apt&#x2F;sources.list.d&#x2F;game.list<br>sed -i ‘s@^(deb.*science stable)$@#\1\ndeb <a target="_blank" rel="noopener" href="https://mirrors.tuna.tsinghua.edu.cn/termux/science-packages-24">https://mirrors.tuna.tsinghua.edu.cn/termux/science-packages-24</a> science stable@’ $PREFIX&#x2F;etc&#x2F;apt&#x2F;sources.list.d&#x2F;science.list<br>apt update &amp;&amp; apt upgrade<br>安装镜像源后：(注意红圈内容)</p>
+<p> <br>4.安装sudo软件<br>Linux sudo命令以系统管理者的身份执行指令，也就是说，经由 sudo 所执行的指令就好像是 root 亲自执行。<br>使用权限：在 &#x2F;etc&#x2F;sudoers 中有出现的使用者。<br>一开始是不能用sudo命令的，所以需要输入pkg install tsu安装sudo<br>二、安装linux(Ubuntu)<br>以上内容为了解、安装、使用Termux，接下来即可正式安装linux(Ubuntu)。<br>1.先安装基础件proot-distro：<br> pkg install proot-distro<br>对于该命令的解释：<br> 2.查看可安装的Linux系统：<br>输入：<br>proot-distro list</p>
+<p>3.安装Ubuntu：<br>输入：<br> proot-distro install ubuntu<br>4.安装完成后，进入 Linux(Ubuntu)环境的指令为：<br>proot-distro login ubuntu<br>出现root@localhost:<del>#  代表已进入Ubuntu环境，root@localhost:</del>#  的含义如下：</p>
+<p> <br>在后面输入 exit 回车 即可退出Ununtu环境。</p>
+<p> 5.在linux(Ubuntu)系统下创建、删除新用户(普通用户):</p>
+<p> 具体操作步骤如下：<br>① root@localhost:~# 后输入:<br>useradd -d &#x2F;home&#x2F;zxxr -m zxxr<br> 文件目录是 &#x2F;home&#x2F;zxxr，用户名是 -m后的 zxxr </p>
+<p>cd &#x2F;home <br>ls<br>ls -l</p>
+<p> ②输入passwd 用户名： <br>注意：只输入passwd，输入的密码是针对root的密码。<br>输入passwd zxxr，则输入的密码是针对zxxr(新用户)的密码。</p>
+<p>③在linux系统中进入新用户(普通用户)：<br>su 新用户名<br>即：<br>su zxxr</p>
+<p>进入新用户后，会发现只出现 $ 。<br>输入 whoami 即可看到当前所在的用户名。<br>直接输入 su root  再输入root用户的密码后，即可进入root用户(非普通用户)。<br>④.删除新用户(普通用户)：<br>为了防止出错，先退出Linux系统(出现logout代表退出linux系统)，再重新进入Linux系统。<br> 输入:<br>userdel -r zxxr<br>即可删除zxxr用户，再输入su zxxr 则出现：<br>如果还想在home&#x2F;zxxr目录下创建新用户zxxr，则如下图：<br> <br>整个过程代码图：
+ </p>
+<p>三、安装Ubuntu桌面：<br>安装桌面则需要用到另外两个软件(红圈)，不过先别急着打开VNC Viewer，只需先打开AnLinux。</p>
+<p> 1.打开Anlinux<br>点击AnLinux左上角，选择“桌面”，选择对应的Linux版本，由于我安装的是Ubuntu，这里我也选择Ubuntu。<br>下面用图片展示步骤：</p>
+<p> <br> <br> <br>点击启动后，会自动进入Termux 界面，在$后输入复制的指令回车即可安装桌面。<br>如果无法正常安装，请看自己复制的指令是否完整，很有可能是由于复制的指令不完整所造成。<br>安装过程中会出现选择语言的界面：<br>第一个选择的中文意思是 不是以上语言，然后会出现选择时区的选项 选择GMT+8，第三个选择是选择18(Chinese)，第四个选择是选择1(Chinese)。</p>
+<p>注意：第三个选择在选择时需要按回车，让more的内容呈现出来后，才可以进行选择。<br>下图为第三个选择和第四个选择：</p>
+<p> 最后会出现设置输入桌面系统密码，该密码用于连接VNC Viewer软件。<br> 按照提示会输入四次。</p>
+<p> <br>当出现 root@localhost:~#  即代表安装桌面系统完成。<br>注意：<br>生成的 localhost:1是VNC Viewer软件连接Ubuntu桌面系统的Address。<br> <br>输入ls即可看到Desktop</p>
+<p> 2.打开VNC Viewer软件<br>按照软件提示一直点 Next，直到出现Get Started，点击即可进入该软件， 在软件界面点击绿圈的+号。<br>然后出现该界面，并输入 生成的localhost:1(输入自己所生成的) 和 名字(任意取)。<br>点击 CREATE。</p>
+<p> 点击CONNECT。<br> <br>点击ok</p>
+<p> 输入密码，点击记住密码，再点击右上角的继续。</p>
+<p>第一次进入就是如下画面，点击skip即可。<br>点击上面的 ？即教给你如何用手的点击手势来表示鼠标的操作。</p>
+<p> <br> 点击右上角的  叉号，即可退出VNC Viewer，但注意此时并未完全退出，需要在 Termux的linux系统 （即root@localhost:<del># 后 ）输入：<br>vncserver-stop<br>才可以彻底的退出VNC Viewer。(为再次进入做好前提条件)<br>然后在需要在 Termux的linux系统 （即root@localhost:</del># 后 ）输入：<br>vncserver-start<br>才具备再次进入VNC Viewer桌面的前提条件。</p>
+<p>再次打开VNC Viewer 点击 Ubuntu(名字)即可进入Ubuntu桌面化界面。</p>
+<p> <br>四、以上操作为搜集各位大佬资料之总结，因此附资料的链接如下：<br>Termux的安装、换源、基本库安装、基本操作讲解以及Termux的使用心得_万方名的博客-CSDN博客_termux换源<br>Termux 详解 - 安梁辉 - 博客园<br> 极致安卓之—Termux安装完整版Linux - 知乎<br>termux | 镜像站使用帮助 | 清华大学开源软件镜像站 | Tsinghua Open Source Mirror<br>Termux系列：手机安装一个带桌面的Linux系统_哔哩哔哩_bilibili<br>Linux常用命令大全_tianzongnihao的博客-CSDN博客_linux基础命令表</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://example.com/2023/09/07/%E2%85%A0%EF%BC%9AGitHub%20+%20Hexo%20(1)%EF%BC%9A%E5%9C%A8%20OS%20X%20%E4%B8%8B%E5%BB%BA%E7%AB%8B%E4%BD%A0%E7%9A%84%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%8D%9A%E5%AE%A2/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -730,7 +1359,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">6</span>
+          <span class="site-state-item-count">10</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -782,19 +1411,19 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">5k</span>
+    <span title="站点总字数">23k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">4 分钟</span>
+    <span title="站点阅读时长">21 分钟</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
   </div>
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共2.6k字</span>
+  <span class="post-count">博客全站共8k字</span>
 </div>
 
 
