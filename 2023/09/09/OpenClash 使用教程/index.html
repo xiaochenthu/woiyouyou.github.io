@@ -22,15 +22,15 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="2023-09-26 10:00:00 OpenClash 是一个可运行在 OpenWrt 上的 Clash 客户端，一般来说你的路由器的第三方固件会附带，当然也可以自行安装。相比于传统的 SS、SSR 或者 PassWall 这些客户端来说，OpenClash 使用 Clash 的配置文件，规则代理会灵活很多，配合 yacd 等 WebUI 控制台操作也非常方便。安装OpenClash 会发布编">
+  <meta name="description" content="OpenClash 是一个可运行在 OpenWrt 上的 Clash 客户端，一般来说你的路由器的第三方固件会附带，当然也可以自行安装。相比于传统的 SS、SSR 或者 PassWall 这些客户端来说，OpenClash 使用 Clash 的配置文件，规则代理会灵活很多，配合 yacd 等 WebUI 控制台操作也非常方便。安装OpenClash 会发布编译好的 IPK 文件（openwrt 的">
 <meta property="og:type" content="article">
 <meta property="og:title" content="OpenClash 使用教程">
 <meta property="og:url" content="http://example.com/2023/09/09/OpenClash%20%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/index.html">
 <meta property="og:site_name" content="奇迹师の尘歌壶">
-<meta property="og:description" content="2023-09-26 10:00:00 OpenClash 是一个可运行在 OpenWrt 上的 Clash 客户端，一般来说你的路由器的第三方固件会附带，当然也可以自行安装。相比于传统的 SS、SSR 或者 PassWall 这些客户端来说，OpenClash 使用 Clash 的配置文件，规则代理会灵活很多，配合 yacd 等 WebUI 控制台操作也非常方便。安装OpenClash 会发布编">
+<meta property="og:description" content="OpenClash 是一个可运行在 OpenWrt 上的 Clash 客户端，一般来说你的路由器的第三方固件会附带，当然也可以自行安装。相比于传统的 SS、SSR 或者 PassWall 这些客户端来说，OpenClash 使用 Clash 的配置文件，规则代理会灵活很多，配合 yacd 等 WebUI 控制台操作也非常方便。安装OpenClash 会发布编译好的 IPK 文件（openwrt 的">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-09-09T07:02:24.876Z">
-<meta property="article:modified_time" content="2023-09-26T02:37:54.259Z">
+<meta property="article:modified_time" content="2023-09-26T05:43:20.722Z">
 <meta property="article:author" content="xiaochenthu">
 <meta name="twitter:card" content="summary">
 
@@ -204,7 +204,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-09-26 10:37:54" itemprop="dateModified" datetime="2023-09-26T10:37:54+08:00">2023-09-26</time>
+                <time title="修改时间：2023-09-26 13:43:20" itemprop="dateModified" datetime="2023-09-26T13:43:20+08:00">2023-09-26</time>
               </span>
 
           
@@ -220,7 +220,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>1.6k</span>
+              <span>1.5k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -239,8 +239,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>2023-09-26 10:00:00</p>
-<p>OpenClash 是一个可运行在 OpenWrt 上的 Clash 客户端，一般来说你的路由器的第三方固件会附带，当然也可以自行安装。相比于传统的 SS、SSR 或者 PassWall 这些客户端来说，OpenClash 使用 Clash 的配置文件，规则代理会灵活很多，配合 yacd 等 WebUI 控制台操作也非常方便。<br>安装<br>OpenClash 会发布编译好的 IPK 文件（openwrt 的软件包），你可以直接下载安装，然后 SSH 到 openwrt 后台进行安装。<br>cd &#x2F;tmp<br>wget <a target="_blank" rel="noopener" href="https://github.com/vernesong/OpenClash/releases/download/v0.42.05-beta/luci-app-openclash_0.42.05-beta_all.ipk">https://github.com/vernesong/OpenClash/releases/download/v0.42.05-beta/luci-app-openclash_0.42.05-beta_all.ipk</a><br>opkg install luci-app-openclash_0.42.05-beta_all.ipk</p>
+        <p>OpenClash 是一个可运行在 OpenWrt 上的 Clash 客户端，一般来说你的路由器的第三方固件会附带，当然也可以自行安装。相比于传统的 SS、SSR 或者 PassWall 这些客户端来说，OpenClash 使用 Clash 的配置文件，规则代理会灵活很多，配合 yacd 等 WebUI 控制台操作也非常方便。<br>安装<br>OpenClash 会发布编译好的 IPK 文件（openwrt 的软件包），你可以直接下载安装，然后 SSH 到 openwrt 后台进行安装。<br>cd &#x2F;tmp<br>wget <a target="_blank" rel="noopener" href="https://github.com/vernesong/OpenClash/releases/download/v0.42.05-beta/luci-app-openclash_0.42.05-beta_all.ipk">https://github.com/vernesong/OpenClash/releases/download/v0.42.05-beta/luci-app-openclash_0.42.05-beta_all.ipk</a><br>opkg install luci-app-openclash_0.42.05-beta_all.ipk</p>
 <p>如果你的版本比较旧，你也可以这样来更新你的 openclash，我这里就以 0.42.05 版本为例。</p>
 <p>配置<br>添加配置文件<br>你的机场一般会给你提供一个订阅地址，有没有 Clash 的订阅都没关系。ss、v2ray、trojan 都是支持的 SSR 不行🙅，复制准备好。</p>
 <p>打开 openclash，在 ConfigUpdate 配置文件订阅里选择新增。</p>
@@ -374,7 +373,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">13</span>
+          <span class="site-state-item-count">9</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -427,19 +426,19 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">26k</span>
+    <span title="站点总字数">22k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">24 分钟</span>
+    <span title="站点阅读时长">20 分钟</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
   </div>
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共9.7k字</span>
+  <span class="post-count">博客全站共7.2k字</span>
 </div>
 
 
