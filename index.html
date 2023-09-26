@@ -171,6 +171,109 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/09/26/chromeos%E5%8F%8C%E7%B3%BB%E7%BB%9F%E9%85%8D%E7%BD%AE%E5%BC%80%E6%9C%BA%E5%90%AF%E5%8A%A8%E9%A1%B9refind/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="xiaochenthu">
+      <meta itemprop="description" content="酷安第三刷机委提醒您/ 刷机千万部，备份第一步/ 刷机不规范，机主两行泪">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="奇迹师の尘歌壶">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2023/09/26/chromeos%E5%8F%8C%E7%B3%BB%E7%BB%9F%E9%85%8D%E7%BD%AE%E5%BC%80%E6%9C%BA%E5%90%AF%E5%8A%A8%E9%A1%B9refind/" class="post-title-link" itemprop="url">chromeos双系统配置开机启动项refind</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2023-09-26 10:00:00 / 修改时间：13:06:32" itemprop="dateCreated datePublished" datetime="2023-09-26T10:00:00+08:00">2023-09-26</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/chromeos/" itemprop="url" rel="index"><span itemprop="name">chromeos</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>1.2k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>原创内容，未经允许禁止转载，经允许的转载需注明出处</p>
+<h4 id="ChromeOS可以Brunch在其官方github界面的教程安装Grub2，但笔者觉得Grub的界面不够美观，所以选择了refind-并写下了这篇文章。"><a href="#ChromeOS可以Brunch在其官方github界面的教程安装Grub2，但笔者觉得Grub的界面不够美观，所以选择了refind-并写下了这篇文章。" class="headerlink" title="ChromeOS可以Brunch在其官方github界面的教程安装Grub2，但笔者觉得Grub的界面不够美观，所以选择了refind,并写下了这篇文章。"></a>ChromeOS可以Brunch在其官方github界面的教程安装Grub2，但笔者觉得Grub的界面不够美观，所以选择了refind,并写下了这篇文章。</h4><!-- refind instruction -->
+<h2 id="refind"><a href="#refind" class="headerlink" title="refind"></a><a target="_blank" rel="noopener" href="https://www.rodsbooks.com/refind/">refind</a></h2><p>refind是一款开源的启动管理器，支持多种操作系统，包括Windows、Linux、MacOS、ChromeOS等，支持多种文件系统，包括FAT、NTFS、HFS+、EXT2&#x2F;3&#x2F;4等，支持多种启动方式，包括EFI、BIOS、ELILO、Coreboot、Xen等，支持多种启动设备，包括硬盘、U盘、光盘、网络等。refind的界面非常美观，支持主题，支持多语言，支持鼠标操作，支持自动检测系统，支持自动检测内核，支持自动检测内核参数，支持自动检测内核驱动，支持自动检测内核图标。</p>
+<!-- installation refind guide -->
+<h2 id="refind安装"><a href="#refind安装" class="headerlink" title="refind安装"></a>refind安装</h2><h3 id="Windows下安装refind"><a href="#Windows下安装refind" class="headerlink" title="Windows下安装refind"></a>Windows下安装refind</h3><ol>
+<li>下载refind的zip包，解压缩到任意目录，例如D:\refind</li>
+<li>利用DiskGenius等工具，将refind-bin-0.12.0\refind复制到ESP分区的EFI目录下  <h4 id="EFI分区的位置如下图所示"><a href="#EFI分区的位置如下图所示" class="headerlink" title="EFI分区的位置如下图所示"></a>EFI分区的位置如下图所示</h4><img src="/./images/refind/efi-partition.png" alt="EFI分区"></li>
+<li>根据你处理器的架构，删除refind\drivers中不需要的驱动，例如删除refind\drivers&#x2F;drivers_ia32开头的驱动（驱动越多开机自检时间越长）</li>
+<li>利用EssyUEFI等工具，将refind-bin-0.12.0\refind\refind_x64.efi添加到启动项中  <h4 id="按如下图所示添加启动项"><a href="#按如下图所示添加启动项" class="headerlink" title="按如下图所示添加启动项"></a>按如下图所示添加启动项</h4></li>
+<li>打开EasyUEFI，选择“管理EFI启动项”，点击“添加新项目”，选择“添加UEFI启动项”<br><img src="/./images/refind/boot1.png" alt="启动项"></li>
+<li>类型选择其他操作系统，描述写refind,点击“浏览”，选择refind_x64.efi，点击“确定”<br><img src="/./images/refind/boot2.png" alt="启动项"></li>
+<li>返回主界面，点击“上移”将refind启动项移动到第一位，点击“保存配置”，重启电脑即可看到refind启动界面</li>
+</ol>
+<h3 id="refind界面美化"><a href="#refind界面美化" class="headerlink" title="refind界面美化"></a>refind界面美化</h3><ol>
+<li>下载<a target="_blank" rel="noopener" href="https://github.com/bobafetthotmail/refind-theme-regular">refind-theme-regular-master.zip</a>，解压缩到任意目录，例如D:\refind-theme-regular-master</li>
+<li>在EFI&#x2F;refind目录下创建themes目录，将refind-theme-regular-master目录下的refind-theme-regular复制到themes目录下(注意去掉-master)</li>
+<li>在EFI&#x2F;refind&#x2F;refind.conf文件末尾添加如下内容（将config文件复制出来修改再复制回去）<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">include themes/refind-theme-regular/theme.conf</span><br></pre></td></tr></table></figure>
+至此，refind的安装和美化已经完成，重启电脑即可看到美观的refind启动界面<br>开启你愉快的ChromeOS之旅吧！</li>
+</ol>
+<!-- refind homepage -->
+
+      
+    </div>
+
+    
+    
+    
+
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://example.com/2023/09/10/%E5%A6%82%E4%BD%95%E5%BF%AB%E9%80%9F%E9%87%8A%E6%94%BE%E8%A2%AB%E5%8D%A0%E7%94%A8%E7%AB%AF%E5%8F%A3/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -185,7 +288,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2023/09/10/%E5%A6%82%E4%BD%95%E5%BF%AB%E9%80%9F%E9%87%8A%E6%94%BE%E8%A2%AB%E5%8D%A0%E7%94%A8%E7%AB%AF%E5%8F%A3/" class="post-title-link" itemprop="url">未命名</a>
+            <a href="/2023/09/10/%E5%A6%82%E4%BD%95%E5%BF%AB%E9%80%9F%E9%87%8A%E6%94%BE%E8%A2%AB%E5%8D%A0%E7%94%A8%E7%AB%AF%E5%8F%A3/" class="post-title-link" itemprop="url">如何快速释放被占用端口</a>
         </h2>
 
         <div class="post-meta">
@@ -194,10 +297,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2023-09-10 20:44:31 / 修改时间：20:45:25" itemprop="dateCreated datePublished" datetime="2023-09-10T20:44:31+08:00">2023-09-10</time>
+              <time title="创建时间：2023-09-10 20:44:31" itemprop="dateCreated datePublished" datetime="2023-09-10T20:44:31+08:00">2023-09-10</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-09-26 10:37:54" itemprop="dateModified" datetime="2023-09-26T10:37:54+08:00">2023-09-26</time>
+              </span>
 
           <br>
             <span class="post-meta-item" title="本文字数">
@@ -269,10 +378,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2023-09-09 15:02:24 / 修改时间：15:06:00" itemprop="dateCreated datePublished" datetime="2023-09-09T15:02:24+08:00">2023-09-09</time>
+              <time title="创建时间：2023-09-09 15:02:24" itemprop="dateCreated datePublished" datetime="2023-09-09T15:02:24+08:00">2023-09-09</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-09-26 10:37:54" itemprop="dateModified" datetime="2023-09-26T10:37:54+08:00">2023-09-26</time>
+              </span>
 
           <br>
             <span class="post-meta-item" title="本文字数">
@@ -299,7 +414,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>2021-05-08</p>
+          <p>2023-09-26 10:00:00</p>
 <p>OpenClash 是一个可运行在 OpenWrt 上的 Clash 客户端，一般来说你的路由器的第三方固件会附带，当然也可以自行安装。相比于传统的 SS、SSR 或者 PassWall 这些客户端来说，OpenClash 使用 Clash 的配置文件，规则代理会灵活很多，配合 yacd 等 WebUI 控制台操作也非常方便。<br>安装<br>OpenClash 会发布编译好的 IPK 文件（openwrt 的软件包），你可以直接下载安装，然后 SSH 到 openwrt 后台进行安装。<br>cd &#x2F;tmp<br>wget <a target="_blank" rel="noopener" href="https://github.com/vernesong/OpenClash/releases/download/v0.42.05-beta/luci-app-openclash_0.42.05-beta_all.ipk">https://github.com/vernesong/OpenClash/releases/download/v0.42.05-beta/luci-app-openclash_0.42.05-beta_all.ipk</a><br>opkg install luci-app-openclash_0.42.05-beta_all.ipk</p>
 <p>如果你的版本比较旧，你也可以这样来更新你的 openclash，我这里就以 0.42.05 版本为例。</p>
 <p>配置<br>添加配置文件<br>你的机场一般会给你提供一个订阅地址，有没有 Clash 的订阅都没关系。ss、v2ray、trojan 都是支持的 SSR 不行🙅，复制准备好。</p>
@@ -341,7 +456,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2023/09/08/install-with-windows/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/09/08/chromeos-install-with-windows/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.png">
@@ -355,7 +470,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2023/09/08/install-with-windows/" class="post-title-link" itemprop="url">如何安装ChromeOS on PC</a>
+            <a href="/2023/09/08/chromeos-install-with-windows/" class="post-title-link" itemprop="url">如何安装ChromeOS on PC</a>
         </h2>
 
         <div class="post-meta">
@@ -364,10 +479,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2023-09-08 15:21:50 / 修改时间：15:27:37" itemprop="dateCreated datePublished" datetime="2023-09-08T15:21:50+08:00">2023-09-08</time>
+              <time title="创建时间：2023-09-08 15:21:50" itemprop="dateCreated datePublished" datetime="2023-09-08T15:21:50+08:00">2023-09-08</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-09-26 10:00:44" itemprop="dateModified" datetime="2023-09-26T10:00:44+08:00">2023-09-26</time>
+              </span>
 
           <br>
             <span class="post-meta-item" title="本文字数">
@@ -394,7 +515,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="包含usb安装，单系统安装和双系统安装-使用Brunch安装ChromeOS-on-PC-框架官网有Linux安装方法不再展示"><a href="#包含usb安装，单系统安装和双系统安装-使用Brunch安装ChromeOS-on-PC-框架官网有Linux安装方法不再展示" class="headerlink" title="包含usb安装，单系统安装和双系统安装.使用Brunch安装ChromeOS on PC,框架官网有Linux安装方法不再展示"></a>包含usb安装，单系统安装和双系统安装.使用<a target="_blank" rel="noopener" href="https://github.com/sebanc/brunch/blob/main/install-with-windows.md">Brunch</a>安装ChromeOS on PC,框架官网有Linux安装方法不再展示</h2><h1 id="Install-with-Windows"><a href="#Install-with-Windows" class="headerlink" title="  Install with Windows"></a><a href="./install-with-windows.md"><img src="https://img.icons8.com/color/24/000000/windows-10.png" alt="Install with Windows"></a>  <a href="./install-with-windows.md">Install with Windows</a></h1><!-- Installation Guides -->
+          <h2 id="包含usb安装，单系统安装和双系统安装-使用Brunch安装ChromeOS-on-PC-框架官网有Linux安装方法不再展示"><a href="#包含usb安装，单系统安装和双系统安装-使用Brunch安装ChromeOS-on-PC-框架官网有Linux安装方法不再展示" class="headerlink" title="包含usb安装，单系统安装和双系统安装.使用Brunch安装ChromeOS on PC,框架官网有Linux安装方法不再展示"></a>包含usb安装，单系统安装和双系统安装.使用<a target="_blank" rel="noopener" href="https://github.com/sebanc/brunch/blob/main/install-with-windows.md">Brunch</a>安装ChromeOS on PC,框架官网有Linux安装方法不再展示</h2><h1 id="Install-with-Windows"><a href="#Install-with-Windows" class="headerlink" title="  Install with Windows"></a><a href="./chromeos-install-with-windows.md"><img src="https://img.icons8.com/color/24/000000/windows-10.png" alt="Install with Windows"></a>  <a href="./chromeos-install-with-windows.md">Install with Windows</a></h1><!-- Installation Guides -->
 <h1 id="USB-installations"><a href="#USB-installations" class="headerlink" title="USB installations"></a>USB installations</h1><p>This guide is for installing Brunch to a USB (or other disk) using Windows. This guide is also required when singlebooting. To begin, boot into Windows and click the dropdown below to continue.</p>
 <details>
   <summary>Click to open USB guide</summary>
@@ -496,7 +617,7 @@
   </details>
   
 <hr>
-<h1 id="Singleboot-installations"><a href="#Singleboot-installations" class="headerlink" title="Singleboot installations"></a>Singleboot installations</h1><p>This guide is for installing Brunch to a disk using a Brunch USB. This guide requires having a working Brunch USB to initiate the install, you can make one by following the <a href="./install-with-windows.md#usb-installations">guide above</a>. To begin, boot into a working Brunch USB and click the dropdown below to continue.</p>
+<h1 id="Singleboot-installations"><a href="#Singleboot-installations" class="headerlink" title="Singleboot installations"></a>Singleboot installations</h1><p>This guide is for installing Brunch to a disk using a Brunch USB. This guide requires having a working Brunch USB to initiate the install, you can make one by following the <a href="./chromeos-install-with-windows.md#usb-installations">guide above</a>. To begin, boot into a working Brunch USB and click the dropdown below to continue.</p>
 <details>
   <summary>Click to open singleboot guide</summary>
 
@@ -1223,82 +1344,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2023/09/07/IV%EF%BC%9AGitHub%20+%20Hexo%20(4)%EF%BC%9A%E9%85%8D%E7%BD%AE%E7%AC%AC%E4%B8%89%E6%96%B9%E6%9C%8D%E5%8A%A1/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="xiaochenthu">
-      <meta itemprop="description" content="酷安第三刷机委提醒您/ 刷机千万部，备份第一步/ 刷机不规范，机主两行泪">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="奇迹师の尘歌壶">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2023/09/07/IV%EF%BC%9AGitHub%20+%20Hexo%20(4)%EF%BC%9A%E9%85%8D%E7%BD%AE%E7%AC%AC%E4%B8%89%E6%96%B9%E6%9C%8D%E5%8A%A1/" class="post-title-link" itemprop="url">如何搭建一个个人博客（4）——GitHub + Hexo</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2023-09-07 18:26:33 / 修改时间：19:27:40" itemprop="dateCreated datePublished" datetime="2023-09-07T18:26:33+08:00">2023-09-07</time>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>722</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>IV：GitHub + Hexo (4)：配置第三方服务。这是 GitHub ＋ Hexo 系列的第四篇文章，关注的重点是以 NexT 主题为例的第三方服务的配置，主要的介绍对象为多说评论和阅读次数统计（LeanCloud）</p>
-<h3 id="多说评论"><a href="#多说评论" class="headerlink" title="多说评论"></a>多说评论</h3><p>NexT 内置了一套多说的样式，如需取消某个页面或文章的评论，在 md 文件的 front-matter 中增加：comments: false<br>2.1安装多说登录后在首页选择 “我要安装”。<br>2.2创建站点多说域名这一栏填写的即是你的 duoshuo_shortname<br>2.3配置文件在站点配置文件中新增 duoshuo_shortname 字段，值设置成上一步中的值，例如：duoshuo_shortname: ipreacher<br>3.阅读次数统计(LeanCloud)首先需要注册LeanCloud帐号并验证邮箱，然后登陆LeanCloud帐号，按照以下步骤操作，拿到AppID以及AppKey这两个参数即可。<br>3.1创建应用首先新建一个应用来专门进行博客的访问统计的数据操作——打开控制台,然后点击创建应用：<br>3.2参数配置和官方文档一样，新建一个名为test的应用，然后应用的名字来进行该应用的参数配置：<br>3.3新建Class点击左侧齿轮图标，选择新建Class。这里为了保证与NexT主题的修改兼容，新建Class名字必须为Counter，另外ACL权限建议设置为无限制：<br>3.4获取AppID和AppKey创建完成之后，左侧数据栏会多出一栏名为Counter的栏目，这个时候我们点击顶部的设置，随后在左侧点击应用Key，即可获取AppID以及AppKey:3.5配置文件复制AppID和AppKey，NexT主题的_config.yml文件中正确配置:</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1370,9 +1415,21 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">12</span>
+          <span class="site-state-item-count">13</span>
           <span class="site-state-item-name">日志</span>
         </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
 </div>
@@ -1411,19 +1468,19 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">25k</span>
+    <span title="站点总字数">26k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">23 分钟</span>
+    <span title="站点阅读时长">24 分钟</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
   </div>
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共9.1k字</span>
+  <span class="post-count">博客全站共9.7k字</span>
 </div>
 
 
