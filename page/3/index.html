@@ -19,7 +19,7 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"xiaochenthu.top","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","width":300,"display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+    var CONFIG = {"hostname":"xiaochenthu.top","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","width":150,"display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
   <meta name="description" content="酷安第三刷机委提醒您刷机千万部，备份第一步玩机不规范，机主两行泪">
@@ -186,7 +186,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://xiaochenthu.top/2023/09/08/Ubuntu%2020.04%20%E5%AE%89%E8%A3%85VNC%20Server%E8%B6%85%E7%AE%80%E5%8D%95%E6%95%99%E7%A8%8B/">
+    <link itemprop="mainEntityOfPage" href="https://xiaochenthu.top/2023/09/09/OpenClash%20%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.png">
@@ -200,7 +200,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2023/09/08/Ubuntu%2020.04%20%E5%AE%89%E8%A3%85VNC%20Server%E8%B6%85%E7%AE%80%E5%8D%95%E6%95%99%E7%A8%8B/" class="post-title-link" itemprop="url">Ubuntu 20.04 安装VNC Server</a>
+            <a href="/2023/09/09/OpenClash%20%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/" class="post-title-link" itemprop="url">OpenClash 使用教程</a>
         </h2>
 
         <div class="post-meta">
@@ -210,14 +210,14 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2023-09-08 15:15:06" itemprop="dateCreated datePublished" datetime="2023-09-08T15:15:06+08:00">2023-09-08</time>
+              <time title="创建时间：2023-09-09 15:02:24" itemprop="dateCreated datePublished" datetime="2023-09-09T15:02:24+08:00">2023-09-09</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-09-26 13:43:04" itemprop="dateModified" datetime="2023-09-26T13:43:04+08:00">2023-09-26</time>
+                <time title="修改时间：2023-09-26 13:43:20" itemprop="dateModified" datetime="2023-09-26T13:43:20+08:00">2023-09-26</time>
               </span>
 
           <br>
@@ -226,7 +226,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>1.2k</span>
+              <span>1.5k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -245,90 +245,26 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>1.确保安装了GNOME DESKTOP<br>对于桌面版是不用说了，服务器版操作系统需要安装一下桌面</p>
-<h1 id="apt-install-ubuntu-gnome-desktop"><a href="#apt-install-ubuntu-gnome-desktop" class="headerlink" title="apt install ubuntu-gnome-desktop"></a>apt install ubuntu-gnome-desktop</h1><h1 id="systemctl-set-default-multi-user-target"><a href="#systemctl-set-default-multi-user-target" class="headerlink" title="systemctl set-default multi-user.target"></a>systemctl set-default multi-user.target</h1><p>$ startx<br>2.Installing VNC<br>不要安装tigervncserver<br>一定要安装这个 standalone的，会有一点区别（不识别 下面的 -localhost no)<br>apt install tigervnc-standalone-server</p>
-<p>3.Configuring the VNC Server<br>如果你希望用某个用户比如 demo登录，就用su切换到这个用户。<br>如果想用root登录就直接使用root账号进行操作。</p>
-<h1 id="su-demo"><a href="#su-demo" class="headerlink" title="su - demo"></a>su - demo</h1><p>demo@demoserver:<del>$ vncpasswd<br>Password:<br>Verify:<br>Would you like to enter a view-only password (y&#x2F;n)? n<br>A view-only password is not used<br>上面的命令会在</del>&#x2F;.vnc&#x2F;目录下生成一个 passwd文件。里面是加密的密码。<br>然后需要cd 到 ~&#x2F;.vnc目录下，新建一个xstartup 文件<br>输入以下内容：<br>#!&#x2F;bin&#x2F;sh</p>
-<h1 id="Start-Gnome-3-Desktop"><a href="#Start-Gnome-3-Desktop" class="headerlink" title="Start Gnome 3 Desktop"></a>Start Gnome 3 Desktop</h1><p>[ -x &#x2F;etc&#x2F;vnc&#x2F;xstartup ] &amp;&amp; exec &#x2F;etc&#x2F;vnc&#x2F;xstartup<br>[ -r $HOME&#x2F;.Xresources ] &amp;&amp; xrdb $HOME&#x2F;.Xresources<br>vncconfig -iconic &amp;<br>dbus-launch –exit-with-session gnome-session &amp;<br>作用是vncserver启动的时候运行这些命令，把桌面程序启动起来。<br>4. Starting the VNC Server<br>$ vncserver<br>即可启动vnc server ,但是连不上，因为只监听了127.0.0.1，所以需要以下命令<br>$ vncserver -localhost no<br>查看全部的vnc会话 <br>$ vncserver -list<br>TigerVNC server sessions:</p>
-<p>X DISPLAY #	PROCESS ID<br>:1		1607<br>:2		4726<br> 关闭某个会话可以用下面的命令<br>$ vncserver -kill :1<br>5.客户端选择<br>vncviewer<br>下载页面：<br>Download VNC Viewer for Windows | VNC® Connect<br>VNC Viewer - Download<br>具体使用不讲了，默认端口是5901</p>
-<p>参考：<br>Ubuntu 20.04 Remote Desktop Access with VNC – Answertopia</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://xiaochenthu.top/2023/09/08/Python%20%E7%88%AC%E8%99%AB%E4%B8%AD%20wad%E5%BA%93%E7%9A%84%E2%80%98gbk%E2%80%98%E7%BC%96%E7%A0%81%E9%97%AE%E9%A2%98/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="xiaochenthu">
-      <meta itemprop="description" content="酷安第三刷机委提醒您<br>刷机千万部，备份第一步<br>玩机不规范，机主两行泪">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="奇迹师の尘歌壶">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2023/09/08/Python%20%E7%88%AC%E8%99%AB%E4%B8%AD%20wad%E5%BA%93%E7%9A%84%E2%80%98gbk%E2%80%98%E7%BC%96%E7%A0%81%E9%97%AE%E9%A2%98/" class="post-title-link" itemprop="url">Python 爬虫中 wad库的‘gbk‘编码问题</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2023-09-08 15:08:23 / 修改时间：15:28:43" itemprop="dateCreated datePublished" datetime="2023-09-08T15:08:23+08:00">2023-09-08</time>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>177</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>最近开始学习python的爬虫。 在吕云翔等编写的Python网络爬虫-从入门到精通一书之中，在介绍查看网站所用的技术时，提到了使用wad库的方法。 但我在使用的过程中遇到了gbk编码问题<br>这里先直接给出解决的方法。<br>打开到clues.py， 找到第46行，在open函数中增加encoding&#x3D;‘utf-8’这项参数。之后保存了就可以正常的运行程序了。</p>
-<pre><code class="python">
-</code></pre>
+          <p>OpenClash 是一个可运行在 OpenWrt 上的 Clash 客户端，一般来说你的路由器的第三方固件会附带，当然也可以自行安装。相比于传统的 SS、SSR 或者 PassWall 这些客户端来说，OpenClash 使用 Clash 的配置文件，规则代理会灵活很多，配合 yacd 等 WebUI 控制台操作也非常方便。<br>安装<br>OpenClash 会发布编译好的 IPK 文件（openwrt 的软件包），你可以直接下载安装，然后 SSH 到 openwrt 后台进行安装。<br>cd &#x2F;tmp<br>wget <a target="_blank" rel="noopener" href="https://github.com/vernesong/OpenClash/releases/download/v0.42.05-beta/luci-app-openclash_0.42.05-beta_all.ipk">https://github.com/vernesong/OpenClash/releases/download/v0.42.05-beta/luci-app-openclash_0.42.05-beta_all.ipk</a><br>opkg install luci-app-openclash_0.42.05-beta_all.ipk</p>
+<p>如果你的版本比较旧，你也可以这样来更新你的 openclash，我这里就以 0.42.05 版本为例。</p>
+<p>配置<br>添加配置文件<br>你的机场一般会给你提供一个订阅地址，有没有 Clash 的订阅都没关系。ss、v2ray、trojan 都是支持的 SSR 不行🙅，复制准备好。</p>
+<p>打开 openclash，在 ConfigUpdate 配置文件订阅里选择新增。</p>
+<p>配置文件名随便取个名字</p>
+<p>然后在订阅地址里填写机场给你提供的（不是 SSR 的都行）</p>
+<p>在线订阅转换勾选上 ｜ 如果你机场提供的就是 Clash 的配置订阅并且你也不想改，就不用勾选</p>
+<p>订阅转换模版如果你有喜欢的可以里面选择一个，或者默认即可</p>
+<p>其它默认即可。当然其它的选项你理解，并且有需求可以自行更改。</p>
+<p>然后保存配置。</p>
+<p>保存配置后，应用配置理论上就能直接使用了，打开 Google YouTube 等网站应该不会有问题。你可以选择打开自动更新，这样就会每天更新你机场的节点变动。</p>
+<p>控制面板</p>
+<p>在 OpenClash 打开后会提供控制面板，推荐你选择 Yacd 的。控制面板提供流量信息，可以方便的切换节点配置。（如果你打开后需要填写 ip 地址就是你这台 openwrt 路由器的 IP，端口默认是 9090，密码默认是：123456 ）控制面板的信息在上图中也有提供。</p>
+<p>概述里面能看到图形化的实时流量信息。</p>
+<p>在代理里面能切换节点。简单介绍下规则：</p>
+<p>节点选择就是默认的选择节点（你也可以选择 url-test，系统就会选择默认延迟低的；全球直连则是不走代理）<br>自动选择（这个你可以忽略）<br>国外媒体、微软服务、苹果服务等等，你的可能不一样。你可以针对每个服务进行选择，这样的好处是灵活。比如你可以让电报走美国节点，Netflix 选择香港、苹果的选择直接连接等等。</p>
+<p>这个文件规则是你上面「订阅转换模版」选择的结果，你可以在那里选择功能更丰富的规则。</p>
+<p>在配置里默认是 Rule 就是有规则的代理，国内网站不走代理，国外的才走，能大大提升速度节省流量。如果你想完全不走代理你在这里可以选择 Direct、如果你想所有的网站包括国内都走代理可以在这里选择 Global，然后在上一步代理的 Global 里即可选择节点。<br>方便的 Web 管理</p>
+<p>你可以打开 <a target="_blank" rel="noopener" href="http://yacd.haishan.me/">http://yacd.haishan.me/</a> 保存这个网站到书签或者你浏览器的首页，手机、电脑任何一个设备都可以。然后添加你的控制面板信息，http:&#x2F;&#x2F;路由器IP:端口、然后输入密码、像是上图我的那样（结尾不需要&#x2F;）。就可以成功添加。</p>
+<p>这样局域网里的任何设备都能非常方便的控制 Clash 的规则、查看网络信息等等。非常方便<br>后记<br>OpenClash 可能看起来麻烦点，不过实际使用却非常方便灵活，能按规则的走代理，让不同的服务走不同的节点就非常方便。配合 Web 网页的控制后台，非常推荐大家路由器都使用这种更先进的上网方式。</p>
 
       
     </div>
@@ -349,7 +285,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -445,7 +381,7 @@
 
       </div>
     <div id="music163player">
-    <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=450 src="//music.163.com/outchain/player?type=0&id=8759144250&auto=1&height=430">
+    <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=450 src="//music.163.com/outchain/player?type=0&id=8759144250&auto=0&height=430">
     </iframe>
     </div>
   </aside>
