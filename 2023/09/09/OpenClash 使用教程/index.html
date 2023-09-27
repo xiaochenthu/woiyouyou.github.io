@@ -19,13 +19,13 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+    var CONFIG = {"hostname":"xiaochenthu.top","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
   <meta name="description" content="OpenClash 是一个可运行在 OpenWrt 上的 Clash 客户端，一般来说你的路由器的第三方固件会附带，当然也可以自行安装。相比于传统的 SS、SSR 或者 PassWall 这些客户端来说，OpenClash 使用 Clash 的配置文件，规则代理会灵活很多，配合 yacd 等 WebUI 控制台操作也非常方便。安装OpenClash 会发布编译好的 IPK 文件（openwrt 的">
 <meta property="og:type" content="article">
 <meta property="og:title" content="OpenClash 使用教程">
-<meta property="og:url" content="http://example.com/2023/09/09/OpenClash%20%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/index.html">
+<meta property="og:url" content="https://xiaochenthu.top/2023/09/09/OpenClash%20%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/index.html">
 <meta property="og:site_name" content="奇迹师の尘歌壶">
 <meta property="og:description" content="OpenClash 是一个可运行在 OpenWrt 上的 Clash 客户端，一般来说你的路由器的第三方固件会附带，当然也可以自行安装。相比于传统的 SS、SSR 或者 PassWall 这些客户端来说，OpenClash 使用 Clash 的配置文件，规则代理会灵活很多，配合 yacd 等 WebUI 控制台操作也非常方便。安装OpenClash 会发布编译好的 IPK 文件（openwrt 的">
 <meta property="og:locale" content="zh_CN">
@@ -34,7 +34,7 @@
 <meta property="article:author" content="xiaochenthu">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://example.com/2023/09/09/OpenClash%20%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/">
+<link rel="canonical" href="https://xiaochenthu.top/2023/09/09/OpenClash%20%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/">
 
 
 <script id="page-configurations">
@@ -140,6 +140,26 @@
     <a href="https://steamdb.info/" rel="noopener" target="_blank"><i class="fas fa-gamepad fa-fw"></i>steamdb</a>
 
   </li>
+        <li class="menu-item menu-item-mihoyo">
+
+    <a href="https://api-static.mihoyo.com/" rel="noopener" target="_blank"><i class="fas fa-gamepad fa-fw"></i>mihoyo</a>
+
+  </li>
+        <li class="menu-item menu-item-xda">
+
+    <a href="https://forum.xda-developers.com/" rel="noopener" target="_blank"><i class="fas fa-gamepad fa-fw"></i>xda</a>
+
+  </li>
+        <li class="menu-item menu-item-coolapk">
+
+    <a href="https://www.coolapk.com/editorChoice" rel="noopener" target="_blank"><i class="fas fa-gamepad fa-fw"></i>coolapk</a>
+
+  </li>
+        <li class="menu-item menu-item-csdn">
+
+    <a href="https://blog.csdn.net/" rel="noopener" target="_blank"><i class="fas fa-gamepad fa-fw"></i>csdn</a>
+
+  </li>
   </ul>
 </nav>
 
@@ -169,12 +189,12 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2023/09/09/OpenClash%20%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/">
+    <link itemprop="mainEntityOfPage" href="https://xiaochenthu.top/2023/09/09/OpenClash%20%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.png">
       <meta itemprop="name" content="xiaochenthu">
-      <meta itemprop="description" content="酷安第三刷机委提醒您/ 刷机千万部，备份第一步/ 刷机不规范，机主两行泪">
+      <meta itemprop="description" content="酷安第三刷机委提醒您 刷机千万部，备份第一步 刷机不规范，机主两行泪">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -271,7 +291,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://example.com/2023/09/09/OpenClash%20%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/" title="OpenClash 使用教程">http://example.com/2023/09/09/OpenClash 使用教程/</a>
+    <a href="https://xiaochenthu.top/2023/09/09/OpenClash%20%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/" title="OpenClash 使用教程">https://xiaochenthu.top/2023/09/09/OpenClash 使用教程/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
@@ -361,7 +381,7 @@
     <img class="site-author-image" itemprop="image" alt="xiaochenthu"
       src="/images/avatar.png">
   <p class="site-author-name" itemprop="name">xiaochenthu</p>
-  <div class="site-description" itemprop="description">酷安第三刷机委提醒您/ 刷机千万部，备份第一步/ 刷机不规范，机主两行泪</div>
+  <div class="site-description" itemprop="description">酷安第三刷机委提醒您 刷机千万部，备份第一步 刷机不规范，机主两行泪</div>
 </div>
 <div class="site-state-wrap motion-element">
   <nav class="site-state">
