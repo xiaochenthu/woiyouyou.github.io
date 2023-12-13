@@ -1,0 +1,830 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-minimal.min.css">
+  <script src="/lib/pace/pace.min.js"></script>
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"xiaochenthu.top","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","width":290,"display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="包含usb安装，单系统安装和双系统安装.使用Brunch安装ChromeOS on PC,框架官网有Linux安装方法不再展示  Install with Windows USB installationsThis guide is for installing Brunch to a USB (or other disk) using Windows. This guide is also re">
+<meta property="og:type" content="article">
+<meta property="og:title" content="如何安装ChromeOS on PC">
+<meta property="og:url" content="https://xiaochenthu.top/2023/12/13/chromeos-install-with-windows/index.html">
+<meta property="og:site_name" content="奇迹师の尘歌壶">
+<meta property="og:description" content="包含usb安装，单系统安装和双系统安装.使用Brunch安装ChromeOS on PC,框架官网有Linux安装方法不再展示  Install with Windows USB installationsThis guide is for installing Brunch to a USB (or other disk) using Windows. This guide is also re">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://img.icons8.com/color/24/000000/windows-10.png">
+<meta property="og:image" content="https://img.shields.io/badge/Discord-Join-7289da?style=flat-square&logo=discord&logoColor=%23FFFFFF">
+<meta property="og:image" content="https://img.shields.io/badge/Reddit-Join-FF5700?style=flat-square&logo=reddit&logoColor=%23FFFFFF">
+<meta property="og:image" content="https://img.shields.io/badge/Telegram-Join-0088cc?style=flat-square&logo=telegram&logoColor=%23FFFFFF">
+<meta property="og:image" content="https://img.icons8.com/color/24/000000/linux--v1.png">
+<meta property="article:published_time" content="2023-12-13T04:57:39.610Z">
+<meta property="article:modified_time" content="2023-09-26T10:00:46.000Z">
+<meta property="article:author" content="xiaochenthu">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img.icons8.com/color/24/000000/windows-10.png">
+
+<link rel="canonical" href="https://xiaochenthu.top/2023/12/13/chromeos-install-with-windows/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>如何安装ChromeOS on PC | 奇迹师の尘歌壶</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">奇迹师の尘歌壶</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">copyright@xiaochenthu<br>all rights reserved</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>日志</a>
+
+  </li>
+        <li class="menu-item menu-item-messageboard">
+
+    <a href="/messageboard/" rel="section"><i class="fas fa-comment-dots fa-fw"></i>留言板</a>
+
+  </li>
+        <li class="menu-item menu-item-download">
+
+    <a href="https://sv4j4-my.sharepoint.com/:f:/g/personal/liuxiaochen_xiaochenthu_top/EpOMIizMuf9Jj7py7xWCO4IBmymOPiaVyxuFucb93pq0Yg?e=A5pb0q" rel="noopener" target="_blank"><i class="fas fa-gamepad fa-fw"></i>download</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://xiaochenthu.top/2023/12/13/chromeos-install-with-windows/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="xiaochenthu">
+      <meta itemprop="description" content="酷安第三刷机委提醒您<br>刷机千万部，备份第一步<br>玩机不规范，机主两行泪">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="奇迹师の尘歌壶">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          如何安装ChromeOS on PC
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2023-12-13 12:57:39" itemprop="dateCreated datePublished" datetime="2023-12-13T12:57:39+08:00">2023-12-13</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-09-26 18:00:46" itemprop="dateModified" datetime="2023-09-26T18:00:46+08:00">2023-09-26</time>
+              </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span><br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>13k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>12 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="包含usb安装，单系统安装和双系统安装-使用Brunch安装ChromeOS-on-PC-框架官网有Linux安装方法不再展示"><a href="#包含usb安装，单系统安装和双系统安装-使用Brunch安装ChromeOS-on-PC-框架官网有Linux安装方法不再展示" class="headerlink" title="包含usb安装，单系统安装和双系统安装.使用Brunch安装ChromeOS on PC,框架官网有Linux安装方法不再展示"></a>包含usb安装，单系统安装和双系统安装.使用<a target="_blank" rel="noopener" href="https://github.com/sebanc/brunch/blob/main/install-with-windows.md">Brunch</a>安装ChromeOS on PC,框架官网有Linux安装方法不再展示</h2><h1 id="Install-with-Windows"><a href="#Install-with-Windows" class="headerlink" title="  Install with Windows"></a><a href="./chromeos-install-with-windows.md"><img src="https://img.icons8.com/color/24/000000/windows-10.png" alt="Install with Windows"></a>  <a href="./chromeos-install-with-windows.md">Install with Windows</a></h1><!-- Installation Guides -->
+<h1 id="USB-installations"><a href="#USB-installations" class="headerlink" title="USB installations"></a>USB installations</h1><p>This guide is for installing Brunch to a USB (or other disk) using Windows. This guide is also required when singlebooting. To begin, boot into Windows and click the dropdown below to continue.</p>
+<details>
+  <summary>Click to open USB guide</summary>
+
+<h3 id="Requirements"><a href="#Requirements" class="headerlink" title="Requirements"></a>Requirements</h3><ul>
+<li>Administrator access.</li>
+<li>Target Disk&#x2F;USB must be 16 GB minimum.<ul>
+<li>You will also need about 16 GB of free space in your Windows installation.</li>
+</ul>
+</li>
+<li>A linux installation via WSL2</li>
+<li><code>pv</code>, <code>tar</code>, <code>unzip</code> and <code>cgpt</code> packages.</li>
+<li>A <a href="./README.md#supported-hardware">compatible PC</a> to boot Brunch on.</li>
+<li>An entry level understanding of the linux terminal.<ul>
+<li>This guide aims to make this process as easy as possible, but knowing the basics is expected.</li>
+</ul>
+</li>
+</ul>
+<h3 id="Recoveries"><a href="#Recoveries" class="headerlink" title="Recoveries"></a>Recoveries</h3><ol>
+<li>Download a recovery suitable for your CPU. The list below can help you select one. You do <em>not</em> need to select a recovery that matches the latest Brunch release number, the most recent avaliable is typically fine.</li>
+</ol>
+<h4 id="Intel"><a href="#Intel" class="headerlink" title="Intel"></a>Intel</h4><ul>
+<li><a target="_blank" rel="noopener" href="https://cros.tech/device/shyvana">“shyvana” for 4th gen -&gt; 9th gen.</a></li>
+<li><a target="_blank" rel="noopener" href="https://cros.tech/device/jinlon">“jinlon” for 10th gen.</a></li>
+<li><a target="_blank" rel="noopener" href="https://cros.tech/device/voxel">“voxel” for 11th gen &amp; above.</a></li>
+</ul>
+<h4 id="AMD"><a href="#AMD" class="headerlink" title="AMD"></a>AMD</h4><ul>
+<li><a target="_blank" rel="noopener" href="https://cros.tech/device/gumboz">“gumboz” for Ryzen.</a></li>
+</ul>
+<p>Recoveries can be found by clicking the above links. They can also be found by going to <a target="_blank" rel="noopener" href="https://cros.tech/">cros.tech</a> and searching for the recovery you want.</p>
+<p>After selecting the recovery you want, you can select a specific release. Posted releases may be behind the current release, this is normal and you can update into the current release later. It is usually suggested to use the latest release avaliable.</p>
+<h3 id="Gathering-Files"><a href="#Gathering-Files" class="headerlink" title="Gathering Files"></a>Gathering Files</h3><ol start="2">
+<li>Download the Brunch files from this GitHub repository. Do not use files found on other sites or linked in videos online. The <a target="_blank" rel="noopener" href="https://github.com/sebanc/brunch/releases">releases tab</a> can be found at the bottom of the right-hand column on the main GitHub page, but it is generally suggested to use the <a target="_blank" rel="noopener" href="https://github.com/sebanc/brunch/releases/latest">latest release</a>.</li>
+</ol>
+<p>When downloading a release, select the brunch…tar.gz file from the assets at the bottom of the release post. You do not need the source code files, do not download them.</p>
+<p>Before continuing, you will need a linux distro installed from the Microsoft Store using WSL2, and the distro must be set up and ready to use. Please refer to online resources for this as the setup can be complicated for some systems.</p>
+<h3 id="Prepare-the-Terminal"><a href="#Prepare-the-Terminal" class="headerlink" title="Prepare the Terminal"></a>Prepare the Terminal</h3><ol start="3">
+<li>Once both files have been downloaded, the Brunch release and your chosen ChromeOS recovery, Launch WSL2.</li>
+<li>Make sure that pv, cgpt, tar and unzip are installed.</li>
+</ol>
+<p><code>sudo apt update &amp;&amp; sudo apt -y install pv cgpt tar unzip</code></p>
+<ul>
+<li>My example uses <code>apt</code>, a package manager for Debian and Ubuntu based distros. If you use Arch, you will need <a target="_blank" rel="noopener" href="https://aur.archlinux.org/packages/vboot-utils">vboot-utils</a> for access to cgpt and a different package manager may be needed to install the rest.</li>
+</ul>
+<p>4b. Some Linux releases may require the <code>universe</code> repo to install some of the above dependencies. If you get any errors about a dependency being unavaliable, add the <code>universe</code> repo with this command, and then try the previous step again afterwards.</p>
+<p><code>sudo add-apt-repository universe</code></p>
+<ol start="5">
+<li>After all dependencies have been installed, <code>cd</code> into the directory where your files were downloaded.</li>
+</ol>
+<ul>
+<li>Replace <code>username</code> with your <em>Windows</em> username.</li>
+<li>The linux terminal is Case Sensitive, be mindful of capital letters.</li>
+</ul>
+<p><code>cd /mnt/c/Users/username/Downloads</code></p>
+<ol start="6">
+<li>Extract the Brunch archive using <code>tar</code></li>
+</ol>
+<ul>
+<li>Replace <code>brunch_filename.tar.gz</code> with the file’s actual filename.</li>
+</ul>
+<p><code>tar zxvf brunch_filename.tar.gz</code></p>
+<ol start="7">
+<li>Extract the ChromeOS recovery using <code>unzip</code></li>
+</ol>
+<ul>
+<li>Replace <code>chromeos_filename.bin.zip</code> with the file’s actual filename.</li>
+</ul>
+<p><code>unzip chromeos_filename.bin.zip</code></p>
+<p>Once completed, you will have 4 new files from the brunch archive, and a recovery bin that we will use in the next step.</p>
+<h3 id="Install-Brunch"><a href="#Install-Brunch" class="headerlink" title="Install Brunch"></a>Install Brunch</h3><ol start="8">
+<li>Once you’ve got your files ready, you’re ready to install Brunch.</li>
+</ol>
+<ul>
+<li>As before, replace <code>chromeos_filename.bin</code> with the bin file’s actual filename.</li>
+</ul>
+<p><code>sudo bash chromeos-install.sh -src chromeos_filename.bin -dst chromeos.img</code></p>
+<p>The script will ask for confirmation. If you’re ready to install, type <code>yes</code> into the prompt.</p>
+<p>The installation may take some time depending on the speed of your disk, please be patient. There may be a couple of GPT Header errors, which can be safely ignored. </p>
+<p>The installation will report that ChromeOS was installed when it is finished. Before closing the terminal, make sure that there are no additional errors in the terminal. If there are no errors, then you are good to go!</p>
+<h3 id="Making-the-USB"><a href="#Making-the-USB" class="headerlink" title="Making the USB"></a>Making the USB</h3><ol start="9">
+<li>Since WSL2 does not have direct disk access, we make an img with WSL2 and then use another program such as <a target="_blank" rel="noopener" href="https://rufus.ie/">Rufus</a> or <a target="_blank" rel="noopener" href="https://www.balena.io/etcher/">Etcher</a> to write the disk to a USB. Open the program of your choice, select the chromeos.img in your Downloads folder and write it to your USB.</li>
+</ol>
+<h3 id="Next-Steps"><a href="#Next-Steps" class="headerlink" title="Next Steps"></a>Next Steps</h3><p>If you installed to a USB or a second internal disk, then you should be ready to boot into Brunch. If you’ve installed to a USB, keep it plugged in and reboot. It is normal for the first boot to take a very long time, please be patient.</p>
+<ul>
+<li>The first boot is the best time to setup anything important such as <a href="./troubleshooting-and-faqs.md#kernels">changing kernels</a> or <a href="./troubleshooting-and-faqs.md#framework-options">framework options</a> by selecting the “ChromeOS (Settings)” boot option.</li>
+<li>If you have any issues, it is strongly advised to check out the <a href="./troubleshooting-and-faqs.md#brunch-configuration-menu">Brunch Configuration Menu</a> for possible patches or solutions.</li>
+<li>At this point, your device may incorrectly state that your installation is only 14 GB, regardless of it’s actual size. This can be fixed by opening a developer shell on the startup screen with <strong>Ctrl + Alt + F2</strong>.<ul>
+<li>Log in as <code>root</code> there should be no password.</li>
+<li>Enter <code>resize-data</code> then reboot the PC when it’s finished. Your reported size should now be accurate.</li>
+</ul>
+</li>
+</ul>
+<h2 id="Secure-Boot"><a href="#Secure-Boot" class="headerlink" title="Secure Boot"></a>Secure Boot</h2><ol start="10">
+<li>If secure boot is enabled, a blue screen saying <code>Verification failed: (15) Access Denied</code> may appear upon boot.</li>
+</ol>
+<ul>
+<li>To enroll the key directly from a USB, select OK -&gt; Enroll key from disk -&gt; EFI-SYSTEM -&gt; brunch.der -&gt; Continue and reboot.</li>
+</ul>
+  </details>
+  
+<hr>
+<h1 id="Singleboot-installations"><a href="#Singleboot-installations" class="headerlink" title="Singleboot installations"></a>Singleboot installations</h1><p>This guide is for installing Brunch to a disk using a Brunch USB. This guide requires having a working Brunch USB to initiate the install, you can make one by following the <a href="./chromeos-install-with-windows.md#usb-installations">guide above</a>. To begin, boot into a working Brunch USB and click the dropdown below to continue.</p>
+<details>
+  <summary>Click to open singleboot guide</summary>
+
+<h3 id="Requirements-1"><a href="#Requirements-1" class="headerlink" title="Requirements"></a>Requirements</h3><ul>
+<li>Administrator access.</li>
+<li>Target Disk must be 16 GB minimum.</li>
+<li>Working Brunch USB.</li>
+<li>A <a href="./README.md#supported-hardware">compatible PC</a> to boot Brunch on.</li>
+<li>An entry level understanding of the linux terminal.<ul>
+<li>This guide aims to make this process as easy as possible, but knowing the basics is expected.</li>
+</ul>
+</li>
+</ul>
+<h3 id="Selecting-a-Target-Disk"><a href="#Selecting-a-Target-Disk" class="headerlink" title="Selecting a Target Disk"></a>Selecting a Target Disk</h3><ol>
+<li><p>Log into ChromeOS, and open a Crosh Shell with <strong>Ctrl + Alt + T</strong>, then enter <code>shell</code> at the prompt.</p>
+</li>
+<li><p>Before continuing, you will need to know what disk you want to install to. Be absolutely sure <strong>before</strong> you continue, this installation will erase <strong>everything</strong> on that disk, including other partitions. The disk must be at least 16 GB, or the installation will fail. There are several ways to determine which disk is your target, in my example I’ll be using <code>lsblk</code>.</p>
+</li>
+</ol>
+<p><code>lsblk -e7</code></p>
+<p>This command will show your disks, and the partitions on them. It will also show their sizes and if they are currently mounted. Use this information to determine which disk is your target.</p>
+<hr>
+<h4 id="Tips"><a href="#Tips" class="headerlink" title="Tips:"></a>Tips:</h4><ul>
+<li><p>Your target will <strong>never</strong> be zram or a loop device.</p>
+</li>
+<li><p>Some PCs may require RAID to be disabled before showing your disks correctly.</p>
+</li>
+<li><p>For this installation, a USB is treated the same as any HDD or SSD.</p>
+</li>
+<li><p>If there is an EFI mountpoint on a disk that disk is your boot disk.</p>
+<ul>
+<li>You <strong>cannot</strong> install Brunch directly onto the same disk you are currently booting from.</li>
+</ul>
+</li>
+<li><p>When doing a singleboot installation, your target will <strong>not</strong> be a partition. This method installs to the <em>entire</em> disk.</p>
+<hr>
+</li>
+</ul>
+<h3 id="Install-Brunch-1"><a href="#Install-Brunch-1" class="headerlink" title="Install Brunch"></a>Install Brunch</h3><ol start="3">
+<li>Once you’ve determined your target disk, you’re ready to install Brunch.</li>
+</ol>
+<ul>
+<li>You will replace <code>disk</code> with your target disk. (Such as <code>sdb</code>, <code>mmcblk0</code> or <code>nvme0n1</code> for example)</li>
+</ul>
+<p><code>sudo chromeos-install -dst /dev/disk</code></p>
+<p>The script will ask for confirmation. If you’re ready to install, type <code>yes</code> into the prompt.</p>
+<p>The installation may take some time depending on the speed of your target disk, please be patient. There may be a couple of GPT Header errors, which can be safely ignored. </p>
+<p>The installation will report that ChromeOS was installed when it is finished. Before closing the terminal, make sure that there are no additional errors in the terminal. If there are no errors, then you are good to go!</p>
+<h3 id="Next-Steps-1"><a href="#Next-Steps-1" class="headerlink" title="Next Steps"></a>Next Steps</h3><p>It is normal for the first boot to take a very long time, please be patient.</p>
+<ul>
+<li>The first boot is the best time to setup anything important such as <a href="./troubleshooting-and-faqs.md#kernels">changing kernels</a> or <a href="./troubleshooting-and-faqs.md#framework-options">framework options</a> by selecting the “ChromeOS (Settings)” boot option.</li>
+<li>If you have any issues, it is strongly advised to check out the <a href="./troubleshooting-and-faqs.md#brunch-configuration-menu">Brunch Configuration Menu</a> for possible patches or solutions.</li>
+</ul>
+</details>  
+  
+<hr>
+<h1 id="Dualboot-installations"><a href="#Dualboot-installations" class="headerlink" title="Dualboot installations"></a>Dualboot installations</h1><p>This guide is for installing Brunch to a partition using Windows WSL2.</p>
+<details>
+  <summary>Click to open dualboot guide</summary>
+
+<h3 id="Requirements-2"><a href="#Requirements-2" class="headerlink" title="Requirements"></a>Requirements</h3><ul>
+<li>Administrator access.</li>
+<li>Target partition must be 16gb minimum, unencrypted (bitlocker disabled), and formatted as NTFS.</li>
+<li>A linux installation vis WSL2</li>
+<li><code>pv</code>, <code>tar</code>, <code>unzip</code> and <code>cgpt</code> packages.</li>
+<li>A <a href="./README.md#supported-hardware">compatible PC</a> to boot Brunch on.</li>
+<li>An entry level understanding of the linux terminal.<ul>
+<li>This guide aims to make this process as easy as possible, but knowing the basics is expected.</li>
+</ul>
+</li>
+</ul>
+<h3 id="Recoveries-1"><a href="#Recoveries-1" class="headerlink" title="Recoveries"></a>Recoveries</h3><ol>
+<li>Download a recovery suitable for your CPU. The list below can help you select one. You do <em>not</em> need to select a recovery that matches the latest Brunch release number, the most recent avaliable is typically fine.</li>
+</ol>
+<h4 id="Intel-1"><a href="#Intel-1" class="headerlink" title="Intel"></a>Intel</h4><ul>
+<li><a target="_blank" rel="noopener" href="https://cros.tech/device/shyvana">“shyvana” for 4th gen -&gt; 9th gen.</a></li>
+<li><a target="_blank" rel="noopener" href="https://cros.tech/device/jinlon">“jinlon” for 10th gen.</a></li>
+<li><a target="_blank" rel="noopener" href="https://cros.tech/device/voxel">“voxel” for 11th gen &amp; above.</a></li>
+</ul>
+<h4 id="AMD-1"><a href="#AMD-1" class="headerlink" title="AMD"></a>AMD</h4><ul>
+<li><a target="_blank" rel="noopener" href="https://cros.tech/device/gumboz">“gumboz” for Ryzen.</a></li>
+</ul>
+<p>Recoveries can be found by clicking the above links. They can also be found by going to <a target="_blank" rel="noopener" href="https://cros.tech/">cros.tech</a> and searching for the recovery you want.</p>
+<p>After selecting the recovery you want, you can select a specific release. Posted releases may be behind the current release, this is normal and you can update into the current release later. It is usually suggested to use the latest release avaliable.</p>
+<h3 id="Gathering-Files-1"><a href="#Gathering-Files-1" class="headerlink" title="Gathering Files"></a>Gathering Files</h3><ol start="2">
+<li>Download the Brunch files from this GitHub repository. Do not use files found on other sites or linked in videos online. The <a target="_blank" rel="noopener" href="https://github.com/sebanc/brunch/releases">releases tab</a> can be found at the bottom of the right-hand column on the main GitHub page, but it is generally suggested to use the <a target="_blank" rel="noopener" href="https://github.com/sebanc/brunch/releases/latest">latest release</a>.</li>
+</ol>
+<p>When downloading a release, select the brunch…tar.gz file from the assets at the bottom of the release post. You do not need the source code files, do not download them.</p>
+<p>Before continuing, you will need a linux distro installed from the Microsoft Store using WSL2, and the distro must be set up and ready to use. Please refer to online resources for this as the setup can be complicated for some systems.</p>
+<h3 id="Prepare-the-Terminal-1"><a href="#Prepare-the-Terminal-1" class="headerlink" title="Prepare the Terminal"></a>Prepare the Terminal</h3><ol start="3">
+<li>Once both files have been downloaded, the Brunch release and your chosen ChromeOS recovery, Launch WSL2.</li>
+<li>Make sure that pv, cgpt, tar and unzip are installed.</li>
+</ol>
+<p><code>sudo apt update &amp;&amp; sudo apt -y install pv cgpt tar unzip</code></p>
+<ul>
+<li>My example uses <code>apt</code>, a package manager for Debian and Ubuntu based distros. If you use Arch, you will need <a target="_blank" rel="noopener" href="https://aur.archlinux.org/packages/vboot-utils">vboot-utils</a> for access to cgpt and a different package manager may be needed to install the rest.</li>
+</ul>
+<p>4b. Some Linux releases may require the <code>universe</code> repo to install some of the above dependencies. If you get any errors about a dependency being unavaliable, add the <code>universe</code> repo with this command, and then try the previous step again afterwards.</p>
+<p><code>sudo add-apt-repository universe</code></p>
+<ol start="5">
+<li>After all dependencies have been installed, <code>cd</code> into the directory where your files were downloaded.</li>
+</ol>
+<ul>
+<li>Replace <code>username</code> with your <em>Windows</em> username.</li>
+<li>The linux terminal is Case Sensitive, be mindful of capital letters.</li>
+</ul>
+<p><code>cd /mnt/c/Users/username/Downloads</code></p>
+<ol start="6">
+<li>Extract the Brunch archive using <code>tar</code></li>
+</ol>
+<ul>
+<li>Replace <code>brunch_filename.tar.gz</code> with the file’s actual filename.</li>
+</ul>
+<p><code>tar zxvf brunch_filename.tar.gz</code></p>
+<ol start="7">
+<li>Extract the ChromeOS recovery using <code>unzip</code></li>
+</ol>
+<ul>
+<li>Replace <code>chromeos_filename.bin.zip</code> with the file’s actual filename.</li>
+</ul>
+<p><code>unzip chromeos_filename.bin.zip</code></p>
+<p>Once completed, you will have 4 new files from the brunch archive, and a recovery bin that we will use in the next step.</p>
+<h3 id="Install-Brunch-2"><a href="#Install-Brunch-2" class="headerlink" title="Install Brunch"></a>Install Brunch</h3><ol start="8">
+<li>Once you’ve got your files ready, you’re ready to install Brunch.</li>
+</ol>
+<ul>
+<li>As before, replace <code>chromeos_filename.bin</code> with the bin file’s actual filename.</li>
+<li>You will also replace <code>size</code> with a whole number. (Such as <code>14</code>, <code>20</code>, or <code>100</code> for example)<ul>
+<li>The number must be a <em>minimum</em> of 14, but <em>less</em> than the avaliable space on your partition in GB.</li>
+</ul>
+</li>
+</ul>
+<p>Make a directory to install Brunch, for example:  </p>
+<ul>
+<li>run <code>mkdir /mnt/c/Users/username/brunch</code> if you want to install brunch in your home folder on C: partition.</li>
+<li>or <code>mkdir /mnt/d/brunch</code> if you want to install brunch in the D: partition.</li>
+</ul>
+<p>  Then launch the installer providing “-dst” argument with the name of the image file to be created (in your brunch directory):<br><code>sudo bash chromeos-install.sh -src chromeos_filename.bin -dst /mnt/c/Users/username/brunch/chromeos.img -s size</code></p>
+<p>The installation may take some time depending on the speed of your target disk, please be patient. There may be a couple of GPT Header errors, which can be safely ignored. If you are told that there is not enough space to install, reduce the number at the end of your command until it fits. It is normal that the img cannot take the entire space of the partition, as some of that space is reserved by the system.</p>
+<p>When the installer asks you for the type of install, type “dualboot” in the terminal and press “Enter” to continue.</p>
+<p>The installation will report that ChromeOS was installed when it is finished. Before continuing, make sure that there are no additional errors in the terminal. If there are no errors, then you are good to continue!</p>
+<h3 id="Set-up-Grub2Win"><a href="#Set-up-Grub2Win" class="headerlink" title="Set up Grub2Win"></a>Set up Grub2Win</h3><ol start="10">
+<li><p>Install <a target="_blank" rel="noopener" href="https://sourceforge.net/projects/grub2win/">Grub2win</a> if you have not already, then launch the program.</p>
+</li>
+<li><p>Click on the <code>Manage Boot Menu</code> button, then <code>Add A New Entry</code>.</p>
+</li>
+</ol>
+<ul>
+<li><p>Select <code>Create user section</code> from the ‘Type’ section. This will open a text file. Open the chromeos.grub.txt file we saved earlier, it’s in the same directory as your chromeos.img. Copy the grub boot entries saved in that file and copy them into Grub2win.</p>
+</li>
+<li><p>Click <code>Ok</code> and <code>Apply</code> to save your entries into Grub2win.</p>
+<ul>
+<li>Your entry will not be saved unless you click <em>both</em> <code>Ok</code> <em>and</em> <code>Apply</code>.</li>
+</ul>
+</li>
+</ul>
+<h3 id="Prevent-Windows-from-locking-the-NTFS-partition"><a href="#Prevent-Windows-from-locking-the-NTFS-partition" class="headerlink" title="Prevent Windows from locking the NTFS partition"></a>Prevent Windows from locking the NTFS partition</h3><ol start="12">
+<li>Disable encryption &#x2F; hibernation</li>
+</ol>
+<p>ChromeOS will not be bootable and &#x2F; or stable if you do not perform the below actions (Refer to Windows online resources if needed):</p>
+<ul>
+<li>Ensure that bitlocker is disabled on the drive which contains the ChromeOS image or disable it.</li>
+<li>Disable fast startup.</li>
+<li>Disable hibernation.</li>
+</ul>
+<p>At this point, you are ready to reboot and you’ll be greeted by the Grub2win menu instead of booting into Windows. </p>
+<h3 id="Next-Steps-2"><a href="#Next-Steps-2" class="headerlink" title="Next Steps"></a>Next Steps</h3><p>It is normal for the first boot to take a very long time, please be patient.</p>
+<ul>
+<li><p>The first boot is the best time to setup anything important such as <a href="./troubleshooting-and-faqs.md#kernels">changing kernels</a> or <a href="./troubleshooting-and-faqs.md#framework-options">framework options</a> by selecting the “ChromeOS (Settings)” boot option.</p>
+</li>
+<li><p>If you have any issues, it is strongly advised to check out the <a href="./troubleshooting-and-faqs.md#brunch-configuration-menu">Brunch Configuration Menu</a> for possible patches or solutions.</p>
+</li></ul></details>
+
+<hr>
+<h1 id="Troubleshooting-and-Support"><a href="#Troubleshooting-and-Support" class="headerlink" title="Troubleshooting and Support"></a><a href="./troubleshooting-and-faqs.md">Troubleshooting and Support</a></h1><p>See the full <a href="./troubleshooting-and-faqs.md">Troubleshooting and Support</a> page if you’re having issues.</p>
+<h3 id="Additional-Tips"><a href="#Additional-Tips" class="headerlink" title="Additional Tips"></a>Additional Tips</h3><ul>
+<li>If you’re having trouble booting a Brunch USB, make sure that UEFI is enabled in the BIOS.</li>
+<li>Some PCs require a key to be held when booting to boot from USB or that USB booting is enabled in the BIOS</li>
+<li>The first boot can take up to an hour on some hardware. Brunch does not typically freeze on the Brunch logo. If you are seeing the Brunch logo, the system is <em>probably</em> still booting.</li>
+<li>If your PC is stuck on the ChromeOS logo (White background), it is likely that you’ve got an incompatible dedicated GPU.</li>
+<li>If you get a blue screen saying “Verification failed” you can either disable secure boot in your bios settings, or <a href="./install-with-linux.md#secure-boot">enroll the secure boot key</a>.<ul>
+<li>To enroll the key directly from a USB, select OK -&gt; Enroll key from disk -&gt; EFI-SYSTEM -&gt; brunch.der -&gt; Continue and reboot.</li>
+</ul>
+</li>
+<li>If the system reboots <em>itself</em> when booting normally, then Brunch has run into an error and you may need to do some advanced troubleshooting.</li>
+</ul>
+<p>In case you run into issues while installing or using Brunch, below are the main places where you can find support:</p>
+<p><a target="_blank" rel="noopener" href="https://discord.gg/x2EgK2M"><img src="https://img.shields.io/badge/Discord-Join-7289da?style=flat-square&logo=discord&logoColor=%23FFFFFF" alt="Discord"></a><br><a target="_blank" rel="noopener" href="https://www.reddit.com/r/Brunchbook"><img src="https://img.shields.io/badge/Reddit-Join-FF5700?style=flat-square&logo=reddit&logoColor=%23FFFFFF" alt="Reddit"></a><br><a target="_blank" rel="noopener" href="https://t.me/chromeosforpc"><img src="https://img.shields.io/badge/Telegram-Join-0088cc?style=flat-square&logo=telegram&logoColor=%23FFFFFF" alt="Telegram"></a></p>
+<!-- Alternate Guide -->
+<h2 id="Looking-for-the-Linux-guide"><a href="#Looking-for-the-Linux-guide" class="headerlink" title="Looking for the Linux guide?"></a>Looking for the Linux guide?</h2><h3 id="Install-with-Linux"><a href="#Install-with-Linux" class="headerlink" title="  Install with Linux"></a><a href="./install-with-linux.md"><img src="https://img.icons8.com/color/24/000000/linux--v1.png" alt="Install with Linux"></a>  <a href="./install-with-linux.md">Install with Linux</a></h3><!-- Reference Links -->
+<!-- Badges -->
+<!-- Outbound Links -->
+<!-- Images -->
+<!-- Internal Links -->
+
+    </div>
+
+    
+    
+    
+
+    
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>xiaochenthu
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://xiaochenthu.top/2023/12/13/chromeos-install-with-windows/" title="如何安装ChromeOS on PC">https://xiaochenthu.top/2023/12/13/chromeos-install-with-windows/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2023/10/07/vultr-server(1)/" rel="prev" title="一台服务器能玩出什么花样（1）网站篇">
+      <i class="fa fa-chevron-left"></i> 一台服务器能玩出什么花样（1）网站篇
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2023/12/13/hello-world/" rel="next" title="Welcome to 奇迹师の尘歌壶">
+      Welcome to 奇迹师の尘歌壶 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8C%85%E5%90%ABusb%E5%AE%89%E8%A3%85%EF%BC%8C%E5%8D%95%E7%B3%BB%E7%BB%9F%E5%AE%89%E8%A3%85%E5%92%8C%E5%8F%8C%E7%B3%BB%E7%BB%9F%E5%AE%89%E8%A3%85-%E4%BD%BF%E7%94%A8Brunch%E5%AE%89%E8%A3%85ChromeOS-on-PC-%E6%A1%86%E6%9E%B6%E5%AE%98%E7%BD%91%E6%9C%89Linux%E5%AE%89%E8%A3%85%E6%96%B9%E6%B3%95%E4%B8%8D%E5%86%8D%E5%B1%95%E7%A4%BA"><span class="nav-number">1.</span> <span class="nav-text">包含usb安装，单系统安装和双系统安装.使用Brunch安装ChromeOS on PC,框架官网有Linux安装方法不再展示</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Install-with-Windows"><span class="nav-number"></span> <span class="nav-text">  Install with Windows</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#USB-installations"><span class="nav-number"></span> <span class="nav-text">USB installations</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Requirements"><span class="nav-number">0.1.</span> <span class="nav-text">Requirements</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Recoveries"><span class="nav-number">0.2.</span> <span class="nav-text">Recoveries</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Intel"><span class="nav-number">0.2.1.</span> <span class="nav-text">Intel</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#AMD"><span class="nav-number">0.2.2.</span> <span class="nav-text">AMD</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Gathering-Files"><span class="nav-number">0.3.</span> <span class="nav-text">Gathering Files</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Prepare-the-Terminal"><span class="nav-number">0.4.</span> <span class="nav-text">Prepare the Terminal</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Install-Brunch"><span class="nav-number">0.5.</span> <span class="nav-text">Install Brunch</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Making-the-USB"><span class="nav-number">0.6.</span> <span class="nav-text">Making the USB</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Next-Steps"><span class="nav-number">0.7.</span> <span class="nav-text">Next Steps</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Secure-Boot"><span class="nav-number">1.</span> <span class="nav-text">Secure Boot</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Singleboot-installations"><span class="nav-number"></span> <span class="nav-text">Singleboot installations</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Requirements-1"><span class="nav-number">0.1.</span> <span class="nav-text">Requirements</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Selecting-a-Target-Disk"><span class="nav-number">0.2.</span> <span class="nav-text">Selecting a Target Disk</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Tips"><span class="nav-number">0.2.1.</span> <span class="nav-text">Tips:</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Install-Brunch-1"><span class="nav-number">0.3.</span> <span class="nav-text">Install Brunch</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Next-Steps-1"><span class="nav-number">0.4.</span> <span class="nav-text">Next Steps</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Dualboot-installations"><span class="nav-number"></span> <span class="nav-text">Dualboot installations</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Requirements-2"><span class="nav-number">0.1.</span> <span class="nav-text">Requirements</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Recoveries-1"><span class="nav-number">0.2.</span> <span class="nav-text">Recoveries</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Intel-1"><span class="nav-number">0.2.1.</span> <span class="nav-text">Intel</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#AMD-1"><span class="nav-number">0.2.2.</span> <span class="nav-text">AMD</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Gathering-Files-1"><span class="nav-number">0.3.</span> <span class="nav-text">Gathering Files</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Prepare-the-Terminal-1"><span class="nav-number">0.4.</span> <span class="nav-text">Prepare the Terminal</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Install-Brunch-2"><span class="nav-number">0.5.</span> <span class="nav-text">Install Brunch</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Set-up-Grub2Win"><span class="nav-number">0.6.</span> <span class="nav-text">Set up Grub2Win</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Prevent-Windows-from-locking-the-NTFS-partition"><span class="nav-number">0.7.</span> <span class="nav-text">Prevent Windows from locking the NTFS partition</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Next-Steps-2"><span class="nav-number">0.8.</span> <span class="nav-text">Next Steps</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Troubleshooting-and-Support"><span class="nav-number"></span> <span class="nav-text">Troubleshooting and Support</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Additional-Tips"><span class="nav-number">0.1.</span> <span class="nav-text">Additional Tips</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Looking-for-the-Linux-guide"><span class="nav-number">1.</span> <span class="nav-text">Looking for the Linux guide?</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Install-with-Linux"><span class="nav-number">1.1.</span> <span class="nav-text">  Install with Linux</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="xiaochenthu"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">xiaochenthu</p>
+  <div class="site-description" itemprop="description">酷安第三刷机委提醒您<br>刷机千万部，备份第一步<br>玩机不规范，机主两行泪</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">11</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">分类</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="sidebar-button motion-element"><i class="fa fa-comment"></i>
+    Chat
+  </a>
+  </div>
+  <div class="cc-license motion-element" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+
+      </div>
+    <div id="music163player">
+    <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=400 src="//music.163.com/outchain/player?type=0&id=8759144250&auto=0&height=430">
+    </iframe>
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">xiaochenthu</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+    <span title="站点总字数">25k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">22 分钟</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">博客全站共9.4k字</span>
+</div>
+
+
+    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+    <span id="busuanzi_container_site_pv">总访问量<span id="busuanzi_value_site_pv"></span>次</span>
+    <span class="post-meta-divider">|</span>
+    <span id="busuanzi_container_site_uv">总访客数<span id="busuanzi_value_site_uv"></span>人</span>
+    <span class="post-meta-divider">|</span>
+<!-- 不蒜子计数初始值纠正 -->
+<script>
+$(document).ready(function() {
+
+    var int = setInterval(fixCount, 50);  // 50ms周期检测函数
+    var countOffset = 20000;  // 初始化首次数据
+
+    function fixCount() {            
+       if (document.getElementById("busuanzi_container_site_pv").style.display != "none")
+        {
+            $("#busuanzi_value_site_pv").html(parseInt($("#busuanzi_value_site_pv").html()) + countOffset); 
+            clearInterval(int);
+        }                  
+        if ($("#busuanzi_container_site_pv").css("display") != "none")
+        {
+            $("#busuanzi_value_site_uv").html(parseInt($("#busuanzi_value_site_uv").html()) + countOffset); // 加上初始数据 
+            clearInterval(int); // 停止检测
+        }  
+    }
+       	
+});
+</script> 
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+<script src="/js/bookmark.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

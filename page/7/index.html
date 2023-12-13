@@ -133,29 +133,9 @@
     <a href="/messageboard/" rel="section"><i class="fas fa-comment-dots fa-fw"></i>留言板</a>
 
   </li>
-        <li class="menu-item menu-item-steamdb">
+        <li class="menu-item menu-item-download">
 
-    <a href="https://steamdb.info" rel="noopener" target="_blank"><i class="fas fa-gamepad fa-fw"></i>steamdb</a>
-
-  </li>
-        <li class="menu-item menu-item-mihoyo">
-
-    <a href="https://api-static.mihoyo.com" rel="noopener" target="_blank"><i class="fas fa-gamepad fa-fw"></i>mihoyo</a>
-
-  </li>
-        <li class="menu-item menu-item-xda">
-
-    <a href="https://forum.xda-developers.com" rel="noopener" target="_blank"><i class="fas fa-gamepad fa-fw"></i>xda</a>
-
-  </li>
-        <li class="menu-item menu-item-coolapk">
-
-    <a href="https://www.coolapk.com/editorChoice" rel="noopener" target="_blank"><i class="fas fa-gamepad fa-fw"></i>coolapk</a>
-
-  </li>
-        <li class="menu-item menu-item-csdn">
-
-    <a href="https://blog.csdn.net" rel="noopener" target="_blank"><i class="fas fa-gamepad fa-fw"></i>csdn</a>
+    <a href="https://sv4j4-my.sharepoint.com/:f:/g/personal/liuxiaochen_xiaochenthu_top/EpOMIizMuf9Jj7py7xWCO4IBmymOPiaVyxuFucb93pq0Yg?e=A5pb0q" rel="noopener" target="_blank"><i class="fas fa-gamepad fa-fw"></i>download</a>
 
   </li>
   </ul>
@@ -186,7 +166,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://xiaochenthu.top/2023/09/08/Termux%E5%AE%89%E8%A3%85%E5%AE%8C%E6%95%B4%E7%89%88Linux(Ubuntu)%E8%AF%A6%E7%BB%86%E6%AD%A5%E9%AA%A4/">
+    <link itemprop="mainEntityOfPage" href="https://xiaochenthu.top/2023/12/13/Ubuntu%2020.04%20%E5%AE%89%E8%A3%85VNC%20Server%E8%B6%85%E7%AE%80%E5%8D%95%E6%95%99%E7%A8%8B/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.png">
@@ -200,7 +180,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2023/09/08/Termux%E5%AE%89%E8%A3%85%E5%AE%8C%E6%95%B4%E7%89%88Linux(Ubuntu)%E8%AF%A6%E7%BB%86%E6%AD%A5%E9%AA%A4/" class="post-title-link" itemprop="url">Termux安装完整版Linux(Ubuntu)详细步骤</a>
+            <a href="/2023/12/13/Ubuntu%2020.04%20%E5%AE%89%E8%A3%85VNC%20Server%E8%B6%85%E7%AE%80%E5%8D%95%E6%95%99%E7%A8%8B/" class="post-title-link" itemprop="url">Ubuntu 20.04 安装VNC Server</a>
         </h2>
 
         <div class="post-meta">
@@ -209,10 +189,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2023-09-08 14:18:02 / 修改时间：15:29:49" itemprop="dateCreated datePublished" datetime="2023-09-08T14:18:02+08:00">2023-09-08</time>
+              <time title="创建时间：2023-12-13 12:57:39" itemprop="dateCreated datePublished" datetime="2023-12-13T12:57:39+08:00">2023-12-13</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-09-26 21:43:06" itemprop="dateModified" datetime="2023-09-26T21:43:06+08:00">2023-09-26</time>
+              </span>
 
           <br>
             <span class="post-meta-item" title="本文字数">
@@ -220,14 +206,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>4.1k</span>
+              <span>1.2k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>4 分钟</span>
+              <span>1 分钟</span>
             </span>
 
         </div>
@@ -239,32 +225,13 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>一、Termux<br>1.Termux简介<br>Termux是 Android 平台上的一个终端模拟器，之所以称它为“模拟器”而非“虚拟机”，是因为它并非像 PC 端的 VirtualBox 等虚拟机软件那样，在宿主机中虚拟出一个完全独立且完整的系统环境，而只是提供一个接口，以安装和运行面向新环境交叉编译后的程序。<br>Termux将众多 Linux 上运行的软件和工具移植到了手机端。无需任何复杂的安装和配置过程，装好Termux以后即会自动对Termux配置一个基本的运行环境，用以执行一些常见的 Linux 命令。<br>最为关键的是Termux内置了功能健全的包管理工具。<br>也可以将此时的手机看作是安装了 Linux 系统的树莓派，可以像 PC 端系统那样运行各种类型的软件，只不过这些软件都是针对特定的 CPU 架构和硬件设备编译过的（交叉编译或者在树莓派系统中本地编译）。 需要注意的是，由于移动端和 PC 端硬件设备的巨大差异，加上 Android 内核和操作系统的限制，能够直接运行的程序毕竟是少数。根据统计，实际上可直接安装运行的软件大概有 900个！<br>这里简单的列举下部分软件：<br>基础工具：apt、bash、busybox、dpkg、git、htop、make、zsh ……编程语言：binutils、clang、dart、erlang、golang、lua、nodejs、perl、php、python、ruby、rust ……服务器软件：apache2、lighttpd、nginx、openssh ……数据库软件：mariadb、memcached、mosquitto、postgresql、redis、sqlite ……文本工具和编辑器：emacs、gawk、nano、sed、vim ……媒体工具：ffmpeg、imagemagick、mpv、sox ……网络工具：curl、httping、nmap、wget ……游戏和娱乐：bastet、cmatrix、cowsay、fortune、moon-buggy、nsnake、sl ……<br>2.Termux安装<br>百度网盘：<br>链接：<a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1svumsiCLq-atB0VdSo9JaA">https://pan.baidu.com/s/1svumsiCLq-atB0VdSo9JaA</a>  提取码：zzxx<br>刚安装这三个软件包后只需打开Termux即可，打开后建议先输入(为了更新一下)：<br>apt update &amp;&amp; apt upgrade  回车 <br>此时可以输入 apt list 查看可安装的软件目录：</p>
-<p> 安装上图中软件方法：<br>输入：<br>apt install 软件名(上图中绿色英文)     回车<br>或<br>pkg install 软件名(上图中绿色英文)     回车<br>例如：<br>$ apt install fortune$ apt install cowsay$ apt install lolcat 软件应用： fortune：输出一段格言警句、名著节选或者小笑话等cowsay：将输出的文字内容包含在由 ASCII 字符组成的动物形象的气泡内lolcat：将苍白的输出文字变成绚丽的彩虹色<br> <br>3.替换镜像源(清华源)<br>替换镜像源是为了之后安装软件更快，之前都是几十KB每秒，替换过后就是几MB每秒。<br>未替换镜像源：（注意红圈内容）</p>
-<p>使用如下命令行替换官方源为 TUNA 镜像源： <br>只需在 $ 后输入以下四行命令(在输入每行后按回车)<br>sed -i ‘s@^(deb.*stable main)$@#\1\ndeb <a target="_blank" rel="noopener" href="https://mirrors.tuna.tsinghua.edu.cn/termux/termux-packages-24">https://mirrors.tuna.tsinghua.edu.cn/termux/termux-packages-24</a> stable main@’ $PREFIX&#x2F;etc&#x2F;apt&#x2F;sources.list<br>sed -i ‘s@^(deb.*games stable)$@#\1\ndeb <a target="_blank" rel="noopener" href="https://mirrors.tuna.tsinghua.edu.cn/termux/game-packages-24">https://mirrors.tuna.tsinghua.edu.cn/termux/game-packages-24</a> games stable@’ $PREFIX&#x2F;etc&#x2F;apt&#x2F;sources.list.d&#x2F;game.list<br>sed -i ‘s@^(deb.*science stable)$@#\1\ndeb <a target="_blank" rel="noopener" href="https://mirrors.tuna.tsinghua.edu.cn/termux/science-packages-24">https://mirrors.tuna.tsinghua.edu.cn/termux/science-packages-24</a> science stable@’ $PREFIX&#x2F;etc&#x2F;apt&#x2F;sources.list.d&#x2F;science.list<br>apt update &amp;&amp; apt upgrade<br>安装镜像源后：(注意红圈内容)</p>
-<p> <br>4.安装sudo软件<br>Linux sudo命令以系统管理者的身份执行指令，也就是说，经由 sudo 所执行的指令就好像是 root 亲自执行。<br>使用权限：在 &#x2F;etc&#x2F;sudoers 中有出现的使用者。<br>一开始是不能用sudo命令的，所以需要输入pkg install tsu安装sudo<br>二、安装linux(Ubuntu)<br>以上内容为了解、安装、使用Termux，接下来即可正式安装linux(Ubuntu)。<br>1.先安装基础件proot-distro：<br> pkg install proot-distro<br>对于该命令的解释：<br> 2.查看可安装的Linux系统：<br>输入：<br>proot-distro list</p>
-<p>3.安装Ubuntu：<br>输入：<br> proot-distro install ubuntu<br>4.安装完成后，进入 Linux(Ubuntu)环境的指令为：<br>proot-distro login ubuntu<br>出现root@localhost:<del>#  代表已进入Ubuntu环境，root@localhost:</del>#  的含义如下：</p>
-<p> <br>在后面输入 exit 回车 即可退出Ununtu环境。</p>
-<p> 5.在linux(Ubuntu)系统下创建、删除新用户(普通用户):</p>
-<p> 具体操作步骤如下：<br>① root@localhost:~# 后输入:<br>useradd -d &#x2F;home&#x2F;zxxr -m zxxr<br> 文件目录是 &#x2F;home&#x2F;zxxr，用户名是 -m后的 zxxr </p>
-<p>cd &#x2F;home <br>ls<br>ls -l</p>
-<p> ②输入passwd 用户名： <br>注意：只输入passwd，输入的密码是针对root的密码。<br>输入passwd zxxr，则输入的密码是针对zxxr(新用户)的密码。</p>
-<p>③在linux系统中进入新用户(普通用户)：<br>su 新用户名<br>即：<br>su zxxr</p>
-<p>进入新用户后，会发现只出现 $ 。<br>输入 whoami 即可看到当前所在的用户名。<br>直接输入 su root  再输入root用户的密码后，即可进入root用户(非普通用户)。<br>④.删除新用户(普通用户)：<br>为了防止出错，先退出Linux系统(出现logout代表退出linux系统)，再重新进入Linux系统。<br> 输入:<br>userdel -r zxxr<br>即可删除zxxr用户，再输入su zxxr 则出现：<br>如果还想在home&#x2F;zxxr目录下创建新用户zxxr，则如下图：<br> <br>整个过程代码图：
- </p>
-<p>三、安装Ubuntu桌面：<br>安装桌面则需要用到另外两个软件(红圈)，不过先别急着打开VNC Viewer，只需先打开AnLinux。</p>
-<p> 1.打开Anlinux<br>点击AnLinux左上角，选择“桌面”，选择对应的Linux版本，由于我安装的是Ubuntu，这里我也选择Ubuntu。<br>下面用图片展示步骤：</p>
-<p> <br> <br> <br>点击启动后，会自动进入Termux 界面，在$后输入复制的指令回车即可安装桌面。<br>如果无法正常安装，请看自己复制的指令是否完整，很有可能是由于复制的指令不完整所造成。<br>安装过程中会出现选择语言的界面：<br>第一个选择的中文意思是 不是以上语言，然后会出现选择时区的选项 选择GMT+8，第三个选择是选择18(Chinese)，第四个选择是选择1(Chinese)。</p>
-<p>注意：第三个选择在选择时需要按回车，让more的内容呈现出来后，才可以进行选择。<br>下图为第三个选择和第四个选择：</p>
-<p> 最后会出现设置输入桌面系统密码，该密码用于连接VNC Viewer软件。<br> 按照提示会输入四次。</p>
-<p> <br>当出现 root@localhost:~#  即代表安装桌面系统完成。<br>注意：<br>生成的 localhost:1是VNC Viewer软件连接Ubuntu桌面系统的Address。<br> <br>输入ls即可看到Desktop</p>
-<p> 2.打开VNC Viewer软件<br>按照软件提示一直点 Next，直到出现Get Started，点击即可进入该软件， 在软件界面点击绿圈的+号。<br>然后出现该界面，并输入 生成的localhost:1(输入自己所生成的) 和 名字(任意取)。<br>点击 CREATE。</p>
-<p> 点击CONNECT。<br> <br>点击ok</p>
-<p> 输入密码，点击记住密码，再点击右上角的继续。</p>
-<p>第一次进入就是如下画面，点击skip即可。<br>点击上面的 ？即教给你如何用手的点击手势来表示鼠标的操作。</p>
-<p> <br> 点击右上角的  叉号，即可退出VNC Viewer，但注意此时并未完全退出，需要在 Termux的linux系统 （即root@localhost:<del># 后 ）输入：<br>vncserver-stop<br>才可以彻底的退出VNC Viewer。(为再次进入做好前提条件)<br>然后在需要在 Termux的linux系统 （即root@localhost:</del># 后 ）输入：<br>vncserver-start<br>才具备再次进入VNC Viewer桌面的前提条件。</p>
-<p>再次打开VNC Viewer 点击 Ubuntu(名字)即可进入Ubuntu桌面化界面。</p>
-<p> <br>四、以上操作为搜集各位大佬资料之总结，因此附资料的链接如下：<br>Termux的安装、换源、基本库安装、基本操作讲解以及Termux的使用心得_万方名的博客-CSDN博客_termux换源<br>Termux 详解 - 安梁辉 - 博客园<br> 极致安卓之—Termux安装完整版Linux - 知乎<br>termux | 镜像站使用帮助 | 清华大学开源软件镜像站 | Tsinghua Open Source Mirror<br>Termux系列：手机安装一个带桌面的Linux系统_哔哩哔哩_bilibili<br>Linux常用命令大全_tianzongnihao的博客-CSDN博客_linux基础命令表</p>
+          <p>1.确保安装了GNOME DESKTOP<br>对于桌面版是不用说了，服务器版操作系统需要安装一下桌面</p>
+<h1 id="apt-install-ubuntu-gnome-desktop"><a href="#apt-install-ubuntu-gnome-desktop" class="headerlink" title="apt install ubuntu-gnome-desktop"></a>apt install ubuntu-gnome-desktop</h1><h1 id="systemctl-set-default-multi-user-target"><a href="#systemctl-set-default-multi-user-target" class="headerlink" title="systemctl set-default multi-user.target"></a>systemctl set-default multi-user.target</h1><p>$ startx<br>2.Installing VNC<br>不要安装tigervncserver<br>一定要安装这个 standalone的，会有一点区别（不识别 下面的 -localhost no)<br>apt install tigervnc-standalone-server</p>
+<p>3.Configuring the VNC Server<br>如果你希望用某个用户比如 demo登录，就用su切换到这个用户。<br>如果想用root登录就直接使用root账号进行操作。</p>
+<h1 id="su-demo"><a href="#su-demo" class="headerlink" title="su - demo"></a>su - demo</h1><p>demo@demoserver:<del>$ vncpasswd<br>Password:<br>Verify:<br>Would you like to enter a view-only password (y&#x2F;n)? n<br>A view-only password is not used<br>上面的命令会在</del>&#x2F;.vnc&#x2F;目录下生成一个 passwd文件。里面是加密的密码。<br>然后需要cd 到 ~&#x2F;.vnc目录下，新建一个xstartup 文件<br>输入以下内容：<br>#!&#x2F;bin&#x2F;sh</p>
+<h1 id="Start-Gnome-3-Desktop"><a href="#Start-Gnome-3-Desktop" class="headerlink" title="Start Gnome 3 Desktop"></a>Start Gnome 3 Desktop</h1><p>[ -x &#x2F;etc&#x2F;vnc&#x2F;xstartup ] &amp;&amp; exec &#x2F;etc&#x2F;vnc&#x2F;xstartup<br>[ -r $HOME&#x2F;.Xresources ] &amp;&amp; xrdb $HOME&#x2F;.Xresources<br>vncconfig -iconic &amp;<br>dbus-launch –exit-with-session gnome-session &amp;<br>作用是vncserver启动的时候运行这些命令，把桌面程序启动起来。<br>4. Starting the VNC Server<br>$ vncserver<br>即可启动vnc server ,但是连不上，因为只监听了127.0.0.1，所以需要以下命令<br>$ vncserver -localhost no<br>查看全部的vnc会话 <br>$ vncserver -list<br>TigerVNC server sessions:</p>
+<p>X DISPLAY #	PROCESS ID<br>:1		1607<br>:2		4726<br> 关闭某个会话可以用下面的命令<br>$ vncserver -kill :1<br>5.客户端选择<br>vncviewer<br>下载页面：<br>Download VNC Viewer for Windows | VNC® Connect<br>VNC Viewer - Download<br>具体使用不讲了，默认端口是5901</p>
+<p>参考：<br>Ubuntu 20.04 Remote Desktop Access with VNC – Answertopia</p>
 
       
     </div>
@@ -285,7 +252,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/6/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><span class="page-number current">7</span><a class="page-number" href="/page/8/">8</a><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/8/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/page/6/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><span class="page-number current">7</span><a class="page-number" href="/page/8/">8</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><a class="extend next" rel="next" href="/page/8/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -353,18 +320,18 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">9</span>
+          <span class="site-state-item-count">11</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
-        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-count">2</span>
         <span class="site-state-item-name">分类</span>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-count">3</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -409,19 +376,19 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">22k</span>
+    <span title="站点总字数">25k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">20 分钟</span>
+    <span title="站点阅读时长">22 分钟</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
   </div>
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共7.2k字</span>
+  <span class="post-count">博客全站共9.4k字</span>
 </div>
 
 

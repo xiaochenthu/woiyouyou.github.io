@@ -133,29 +133,9 @@
     <a href="/messageboard/" rel="section"><i class="fas fa-comment-dots fa-fw"></i>留言板</a>
 
   </li>
-        <li class="menu-item menu-item-steamdb">
+        <li class="menu-item menu-item-download">
 
-    <a href="https://steamdb.info" rel="noopener" target="_blank"><i class="fas fa-gamepad fa-fw"></i>steamdb</a>
-
-  </li>
-        <li class="menu-item menu-item-mihoyo">
-
-    <a href="https://api-static.mihoyo.com" rel="noopener" target="_blank"><i class="fas fa-gamepad fa-fw"></i>mihoyo</a>
-
-  </li>
-        <li class="menu-item menu-item-xda">
-
-    <a href="https://forum.xda-developers.com" rel="noopener" target="_blank"><i class="fas fa-gamepad fa-fw"></i>xda</a>
-
-  </li>
-        <li class="menu-item menu-item-coolapk">
-
-    <a href="https://www.coolapk.com/editorChoice" rel="noopener" target="_blank"><i class="fas fa-gamepad fa-fw"></i>coolapk</a>
-
-  </li>
-        <li class="menu-item menu-item-csdn">
-
-    <a href="https://blog.csdn.net" rel="noopener" target="_blank"><i class="fas fa-gamepad fa-fw"></i>csdn</a>
+    <a href="https://sv4j4-my.sharepoint.com/:f:/g/personal/liuxiaochen_xiaochenthu_top/EpOMIizMuf9Jj7py7xWCO4IBmymOPiaVyxuFucb93pq0Yg?e=A5pb0q" rel="noopener" target="_blank"><i class="fas fa-gamepad fa-fw"></i>download</a>
 
   </li>
   </ul>
@@ -186,7 +166,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://xiaochenthu.top/2023/09/09/OpenClash%20%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/">
+    <link itemprop="mainEntityOfPage" href="https://xiaochenthu.top/2023/12/13/%E5%A6%82%E4%BD%95%E5%BF%AB%E9%80%9F%E9%87%8A%E6%94%BE%E8%A2%AB%E5%8D%A0%E7%94%A8%E7%AB%AF%E5%8F%A3/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.png">
@@ -200,7 +180,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2023/09/09/OpenClash%20%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/" class="post-title-link" itemprop="url">OpenClash 使用教程</a>
+            <a href="/2023/12/13/%E5%A6%82%E4%BD%95%E5%BF%AB%E9%80%9F%E9%87%8A%E6%94%BE%E8%A2%AB%E5%8D%A0%E7%94%A8%E7%AB%AF%E5%8F%A3/" class="post-title-link" itemprop="url">如何快速释放被占用端口</a>
         </h2>
 
         <div class="post-meta">
@@ -210,14 +190,14 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2023-09-09 15:02:24" itemprop="dateCreated datePublished" datetime="2023-09-09T15:02:24+08:00">2023-09-09</time>
+              <time title="创建时间：2023-12-13 12:57:39" itemprop="dateCreated datePublished" datetime="2023-12-13T12:57:39+08:00">2023-12-13</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-09-26 13:43:20" itemprop="dateModified" datetime="2023-09-26T13:43:20+08:00">2023-09-26</time>
+                <time title="修改时间：2023-09-26 18:37:56" itemprop="dateModified" datetime="2023-09-26T18:37:56+08:00">2023-09-26</time>
               </span>
 
           <br>
@@ -226,7 +206,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>1.5k</span>
+              <span>157</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -245,26 +225,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>OpenClash 是一个可运行在 OpenWrt 上的 Clash 客户端，一般来说你的路由器的第三方固件会附带，当然也可以自行安装。相比于传统的 SS、SSR 或者 PassWall 这些客户端来说，OpenClash 使用 Clash 的配置文件，规则代理会灵活很多，配合 yacd 等 WebUI 控制台操作也非常方便。<br>安装<br>OpenClash 会发布编译好的 IPK 文件（openwrt 的软件包），你可以直接下载安装，然后 SSH 到 openwrt 后台进行安装。<br>cd &#x2F;tmp<br>wget <a target="_blank" rel="noopener" href="https://github.com/vernesong/OpenClash/releases/download/v0.42.05-beta/luci-app-openclash_0.42.05-beta_all.ipk">https://github.com/vernesong/OpenClash/releases/download/v0.42.05-beta/luci-app-openclash_0.42.05-beta_all.ipk</a><br>opkg install luci-app-openclash_0.42.05-beta_all.ipk</p>
-<p>如果你的版本比较旧，你也可以这样来更新你的 openclash，我这里就以 0.42.05 版本为例。</p>
-<p>配置<br>添加配置文件<br>你的机场一般会给你提供一个订阅地址，有没有 Clash 的订阅都没关系。ss、v2ray、trojan 都是支持的 SSR 不行🙅，复制准备好。</p>
-<p>打开 openclash，在 ConfigUpdate 配置文件订阅里选择新增。</p>
-<p>配置文件名随便取个名字</p>
-<p>然后在订阅地址里填写机场给你提供的（不是 SSR 的都行）</p>
-<p>在线订阅转换勾选上 ｜ 如果你机场提供的就是 Clash 的配置订阅并且你也不想改，就不用勾选</p>
-<p>订阅转换模版如果你有喜欢的可以里面选择一个，或者默认即可</p>
-<p>其它默认即可。当然其它的选项你理解，并且有需求可以自行更改。</p>
-<p>然后保存配置。</p>
-<p>保存配置后，应用配置理论上就能直接使用了，打开 Google YouTube 等网站应该不会有问题。你可以选择打开自动更新，这样就会每天更新你机场的节点变动。</p>
-<p>控制面板</p>
-<p>在 OpenClash 打开后会提供控制面板，推荐你选择 Yacd 的。控制面板提供流量信息，可以方便的切换节点配置。（如果你打开后需要填写 ip 地址就是你这台 openwrt 路由器的 IP，端口默认是 9090，密码默认是：123456 ）控制面板的信息在上图中也有提供。</p>
-<p>概述里面能看到图形化的实时流量信息。</p>
-<p>在代理里面能切换节点。简单介绍下规则：</p>
-<p>节点选择就是默认的选择节点（你也可以选择 url-test，系统就会选择默认延迟低的；全球直连则是不走代理）<br>自动选择（这个你可以忽略）<br>国外媒体、微软服务、苹果服务等等，你的可能不一样。你可以针对每个服务进行选择，这样的好处是灵活。比如你可以让电报走美国节点，Netflix 选择香港、苹果的选择直接连接等等。</p>
-<p>这个文件规则是你上面「订阅转换模版」选择的结果，你可以在那里选择功能更丰富的规则。</p>
-<p>在配置里默认是 Rule 就是有规则的代理，国内网站不走代理，国外的才走，能大大提升速度节省流量。如果你想完全不走代理你在这里可以选择 Direct、如果你想所有的网站包括国内都走代理可以在这里选择 Global，然后在上一步代理的 Global 里即可选择节点。<br>方便的 Web 管理</p>
-<p>你可以打开 <a target="_blank" rel="noopener" href="http://yacd.haishan.me/">http://yacd.haishan.me/</a> 保存这个网站到书签或者你浏览器的首页，手机、电脑任何一个设备都可以。然后添加你的控制面板信息，http:&#x2F;&#x2F;路由器IP:端口、然后输入密码、像是上图我的那样（结尾不需要&#x2F;）。就可以成功添加。</p>
-<p>这样局域网里的任何设备都能非常方便的控制 Clash 的规则、查看网络信息等等。非常方便<br>后记<br>OpenClash 可能看起来麻烦点，不过实际使用却非常方便灵活，能按规则的走代理，让不同的服务走不同的节点就非常方便。配合 Web 网页的控制后台，非常推荐大家路由器都使用这种更先进的上网方式。</p>
+          <p>如何快速释放被占用端口<br>打开cmd窗口，输入以下命令<br>命令1：netstat -aon|findstr 8080 查询占用的端口号对应进程<br>命令2：tasklist|findstr  10268 显示进程<br>命令3：taskkill  &#x2F;f  &#x2F;pid 10268 通过进程pid删除进程，释放端口<br>&#96;&#96;&#96;</p>
 
       
     </div>
@@ -285,7 +246,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -353,18 +314,18 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">9</span>
+          <span class="site-state-item-count">11</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
-        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-count">2</span>
         <span class="site-state-item-name">分类</span>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-count">3</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -409,19 +370,19 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">22k</span>
+    <span title="站点总字数">25k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">20 分钟</span>
+    <span title="站点阅读时长">22 分钟</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
   </div>
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共7.2k字</span>
+  <span class="post-count">博客全站共9.4k字</span>
 </div>
 
 
